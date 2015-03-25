@@ -17,19 +17,19 @@ int main(int argc, char const *argv[])
 	int i = 1;
 	
 
-    if (argc > 2)
+    if (argc > 2)	// Si on met plus de 2 arguments : message d'erreur
     {
     	printf("Utilisation du main : ./main [nom_de_fichier]\n");
     }
     else
     {
     	
-    	if (argc == 2)
+    	if (argc == 2)	//Si nb d'argument = 1, alors on ouvre le fichier passé en argument
 	    {
 	        fichier = fopen (argv[1], "r"); /* On ouvre le fichier passer en argument argv[1] */
 	        
 	    } 
-	    else 
+	    else // Sinon on utilise l'entrée standard stdin
 	    {
     		fichier = stdin;
     	}
