@@ -34,7 +34,7 @@ int main(int argc, char const *argv[])
     		fichier = stdin;
     	}
 
-    	while (!feof(fichier))
+    	while (!feof(fichier))	// POur l'instant, le main ne fait que afficher les mots du texte qu'on lui a donné
 	    {
 	    	mot = next_word(fichier, &nbligne, &nbcolonne);
 	    	printf("Mot n°%d: %s \n",i, mot);
