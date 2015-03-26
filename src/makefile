@@ -1,11 +1,11 @@
 CC=gcc
 CFLAGS=-I../include/ -Wall 
 FLAGSSO=-L../lib/liblinux64/ -ltokenize
-SRCS= 
+SRCS=TODO
 EXEC=main
 
-all: $(EXEC)
-	gcc $(CFLAGS) main.c $(FLAGSSO) -o $(EXEC)
+all:
+	gcc $(CFLAGS) -Wall main.c -o $(EXEC) $(FLAGSSO)
 
 clean:
 	rm -rf *.o
