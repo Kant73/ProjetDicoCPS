@@ -15,7 +15,7 @@ typedef maillon* maillon_t;
 
 /**
  * Modifie la k-ieme lettre d'un maillon
- * @param k : indice entier compris entre 0 et 5
+ * @param k : indice entier supérieur à 0
  * @param c : caractère à inserer
  * @param m : maillon à modifier
  */
@@ -37,6 +37,22 @@ char get_charnum(int k, maillon m);
  */
 int get_nb_bits(int a);
 
+
+/**
+ * Convertit une chaine de caractère en liste de maillons
+ * @param chaine : chaine à convertir
+ * @param m : maillon converti
+ * @param der_m : pointeur vers le ddernier maillon
+ */
+void string_to_maillon(char* chaine, maillon* m, maillon* der_m);
+
+/**
+ * Convertit une liste de maillons en chaine de caractères
+ * @param m : maillon à convertir
+ * @param taille : taille du mot
+ * @return : la chaine de caractères convertie
+ */
+char* maillon_to_string(maillon* m, int taille);
 
 /**
  * C version 0.4 char* style "itoa":
