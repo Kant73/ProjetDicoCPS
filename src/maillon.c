@@ -33,7 +33,6 @@ char get_charnum(int k, maillon m){
 }
 
 
-
 void set_charnum(int k, char c, maillon *m){
 	//Initialisation
 	int mask_one = 0b111111111111111111111111111111;
@@ -54,6 +53,39 @@ void set_charnum(int k, char c, maillon *m){
 	//On fait un ou bit à bit sur les bits qu'on vient de mettre à zero afin de changer la valeur du k-ième élement
 	(*m).val = (*m).val | (mask_char << (5*(5-k)));
 }
+
+
+//initialise m avec la chaine passée en paramètre
+void string_to_maillon(char* chaine, maillon* m, maillon* der_m)
+{
+	int i=0;
+	char c=*chaine;
+	m=(maillon*)malloc(sizeof(maillon));
+	der_m = m;
+	//On parcourt le mot et on le stocke dans un maillon
+	while(c!='\0') //Tant que ce n'est pas la fin du mot
+	{
+		if(i>5){
+			//on passe au maillon suivant lorsque le maillon courant est plein
+			(*der_m).suiv=(maillon*)malloc(sizeof(maillon));
+			der_m=(*der_m).suiv;
+			i=i-6;
+		}
+		set_charnum(i,c,der_m);
+		i++;
+		c=*(chaine+i);
+	}
+}
+
+char* maillon_to_string(maillon* m, int taille)
+{
+	char* chaine=NULL;
+	return chaine;
+}
+
+
+
+
 
 
 char* itoa(int value, char* result, int base) {
