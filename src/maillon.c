@@ -32,11 +32,12 @@ int get_nb_lettres(maillon* m)
 	lettres l=(*m).val;
 	maillon* m_courant=m;
     int nb_lettres=0;
+    l <<= 2;	// Pour supprimer les bits 30 et 31
     while(l)
     {
         l<<=5;
         nb_lettres++;
-        if((nb_lettres==6)&&((*m_courant).suiv!=NULL)){ 
+        if((nb_lettres==5)&&((*m_courant).suiv!=NULL)){ 
         //si on a atteint la fin du maillon et qu'il y en a encore à tester
         	m_courant=(*m_courant).suiv; //on teste sur les maillons suivants
         	l=(*m_courant).val; //on récupère la suite du mot
@@ -75,44 +76,6 @@ void set_charnum(int k, char c, maillon *m){
 	//On fait un ou bit à bit sur les bits qu'on vient de mettre à zero afin de changer la valeur du k-ième élement
 	(*m).val = (*m).val | (mask_char << (5*(5-k)));
 }
-
-/*
-//initialise m avec la chaine passée en paramètre
-void string_to_maillon(char* chaine, maillon* m, maillon* der_m)
-{
-	int i=0;
-	char c=*chaine;
-	m=(maillon*) malloc(sizeof(struct maillon));
-	(*m).suiv = (maillon*) malloc(sizeof(struct maillon));
-	der_m = m;
-	//On parcourt le mot et on le stocke dans un maillon
-	while(c!='\0') //Tant que ce n'est pas la fin du mot
-	{
-		if(i>5){
-			//on passe au maillon suivant lorsque le maillon courant est plein
-			(*der_m).suiv=(maillon*) malloc(sizeof(maillon));
-			der_m=(*der_m).suiv;
-			i=i-6;
-		}
-		set_charnum(i,c,der_m);
-		i++;
-		c=*(chaine+i);
-	}
-
-	printf("DEBUT TEST\n");
-	char c2 ;
-	int j = 0;
-	for (j = 0; j <= 5; j++)
-	{
-		c2 = get_charnum(j, *m);
-		printf("Lettre n°%d: %c\n",j, c2);
-	}
-	printf("FIN TEST\n");
-}
-
-
-*/
-
 
 void string_to_maillon(char* chaine, maillon* m)
 {
@@ -198,14 +161,17 @@ char* maillon_to_string(maillon* m)
 	int saut=0;				//variable grâce à laquelle on connait le caractère effectif
 	maillon* m_temp=m;
 
-//On calcule la taille du mot que l'on veut récupérer
+	//On calcule la taille du mot que l'on veut récupérer
 	int taille=get_nb_lettres(m); 
+	printf("taille :%d\n",taille);
 	chaine=(char*)malloc(taille*sizeof(char)+1);
 
 	//On parcours le maillon en remplissant la chaine
 	while(saut+i<taille){
 		*(chaine+i+saut)=get_charnum(i,*m_temp); 
-		if(i=5){
+		//printf("chaine : %s\n", chaine);
+		//printf("i : %d", i);
+		if(i==5){
 			i=0;							//reinitialisation de i à 0
 			saut=saut+6;					//on doit sauter 6 lettres
 			m_temp= (*m_temp).suiv;			//on passe au maillon suivant

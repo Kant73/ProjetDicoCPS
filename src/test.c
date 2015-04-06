@@ -48,7 +48,9 @@ int main(void)
 
 	//Test de string_to_maillon
 	char* chaine = "luciaboly";
+	char* chaine2 = NULL;
 	maillon m1;
+	maillon m2;
 
 	//maillon* m_der = NULL;
 	//m_der = (maillon*) malloc(sizeof(struct maillon));
@@ -92,5 +94,7 @@ int main(void)
 		printf("Lettre n°%d: %c\n",j, c);
 	}
 
+	chaine2 = maillon_to_string(&m1);
+	printf("chaine2 : %s\n", chaine2);
 	return 0;
 }
