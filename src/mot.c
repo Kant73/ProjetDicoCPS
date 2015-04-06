@@ -2,26 +2,48 @@
 #include <stdlib.h>
 #include <stdint.h>
 
+#ifndef MOT
+#define MOT
+#include "mot.h"
+#endif
+
+/**
+ * Mot.c
+ * @author Quentin DUNAND and Elsa Navarro
+ * 
+ */
 
 
-
-typedef struct emplacement emplacement;
-struct emplacement
+void print_mot(mot_t m)
 {
-    int ligne;
-    int colonne;
-    struct emplacement *suiv;
-}; 
-typedef emplacement* emplacement_t;
+	printf("%s ", maillon_to_string(m.tete_mot));
+	emplacement_t tete = *(m.tete_liste);
+	while (tete.suiv!=NULL)
+	{
+		printf("(%d, %d) ", tete.ligne, tete.colonne);
+		tete = *(tete.suiv);
+	}
+}
 
 
-typedef struct mot mot;
-struct mot
+void create_mot(char* word, int num_ligne, int num_col, mot_t mot)
 {
-    maillon_t *tete_mot;
-    maillon_t *queue_mot;
-    emplacement_t *tete_liste;
-    emplacement_t *queue_liste;
-    struct mot *suiv;
-}; 
-typedef mot* mot_t;
+	//maillon* ma;
+	string_to_maillon(word, mot.tete_mot);
+	emplacement_t empl;
+	empl.ligne = num_ligne;
+	empl.colonne = num_col;
+	
+
+	//mot.tete_mot = ma;
+	mot.tete_liste = &empl;
+	mot.queue_liste = &empl;
+	/*
+	while((*ma).suiv!=NULL)
+	{
+		ma = (*ma).suiv;
+	}
+
+	mot.queue_mot = ma;
+	*/
+}

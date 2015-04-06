@@ -39,12 +39,19 @@ int get_nb_bits(int a);
 
 
 /**
+ * Retourne le nombre de lettre d'un maillon
+ * @param  m [description]
+ * @return   [description]
+ */
+int get_nb_lettres(maillon* m);
+
+/**
  * Convertit une chaine de caractère en liste de maillons
  * @param chaine : chaine à convertir
  * @param m : maillon converti
  * @param der_m : pointeur vers le ddernier maillon
  */
-void string_to_maillon(char* chaine, maillon* m, maillon* der_m);
+void string_to_maillon(char* chaine, maillon* m);
 
 /**
  * Convertit une liste de maillons en chaine de caractères
@@ -52,7 +59,12 @@ void string_to_maillon(char* chaine, maillon* m, maillon* der_m);
  * @param taille : taille du mot
  * @return : la chaine de caractères convertie
  */
-char* maillon_to_string(maillon* m, int taille);
+char* maillon_to_string(maillon* m);
+
+
+
+
+
 
 /**
  * C version 0.4 char* style "itoa":
@@ -67,3 +79,7 @@ char* maillon_to_string(maillon* m, int taille);
  * @return 		 L'entier "value" dans la base "base" sous la forme d'une chaîne de caractère
 */
 char* itoa(int value, char* result, int base);
+
+
+maillon ajouter_maillon(maillon ajoute, maillon m);
+
