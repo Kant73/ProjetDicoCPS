@@ -58,7 +58,7 @@ void print_mot(mot_t m);
 * @param num_col : colonne où se trouve le mot
 * @param mot : mot dans lequel on veut créer le mot
 */
-void create_mot(char* word, int num_ligne, int num_col, mot_t mot);
+void create_mot(char* word, int num_ligne, int num_col, mot_t* mot);
 
 /**
 * Compare deux mots selon leur ordre alphabétique
@@ -66,11 +66,11 @@ void create_mot(char* word, int num_ligne, int num_col, mot_t mot);
 * @param m2 :
 * @return :
 */
-int compare_mot(mot_t m1, mot_t m2);
+//int compare_mot(mot_t m1, mot_t m2);
 
 /**
 * Insère un mot dans le dictionnaire dans l'ordre alphabtique
 * @param d :
 * @param m : mot à afficher
 */
-void insertion_dico(dico* d, mot_t m);
+//void insertion_dico(dico_t* d, mot_t m);

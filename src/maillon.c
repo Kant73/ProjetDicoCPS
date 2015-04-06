@@ -72,7 +72,7 @@ void set_charnum(int k, char c, maillon *m){
 
 	//On modifie le maillion qu'on veut changer afin de mettre les bits qu'on veut modifier à zero
 	(*m).val = (*m).val & mask_one;
-	
+
 	//On fait un ou bit à bit sur les bits qu'on vient de mettre à zero afin de changer la valeur du k-ième élement
 	(*m).val = (*m).val | (mask_char << (5*(5-k)));
 }
@@ -91,7 +91,7 @@ void string_to_maillon(char* chaine, maillon* m)
 
 	der_m = m;
 
-	
+	//printf("der_m : %d\n", der_m);
 
 	while(c!='\0') //Tant que ce n'est pas la fin du mot
 	{
@@ -108,7 +108,9 @@ void string_to_maillon(char* chaine, maillon* m)
 			saut = saut + 6;
 			//printf("DEBUT TEST if\n");
 		}
+		//printf("string_to_maillon 1\n");
 		set_charnum(i,c, der_m);
+		//printf("string_to_maillon 2\n");
 		//printf("c: %c\n",c );
 		i++;
 		c=*(chaine+i+saut);
@@ -129,6 +131,7 @@ void string_to_maillon(char* chaine, maillon* m)
 	}
 	printf("FIN TEST\n");
 	*/
+	
 }
 
 

@@ -96,5 +96,29 @@ int main(void)
 
 	chaine2 = maillon_to_string(&m1);
 	printf("chaine2 : %s\n", chaine2);
+
+	/////////////////
+	//Test de mot.c//
+	/////////////////
+
+	//Test de create_mot
+	//void create_mot(char* word, int num_ligne, int num_col, mot_t mot);
+
+	mot_t mot1;
+	mot1.tete_mot = (maillon*) malloc(sizeof(struct maillon));
+	mot1.queue_mot = (maillon*) malloc(sizeof(struct maillon));
+	create_mot("salutleszi", 12, 18, &mot1);
+
+	
+
+
+
+	//Test de print_mot
+	//void print_mot(mot_t m);
+	
+	print_mot(mot1);
+
+
+
 	return 0;
 }
