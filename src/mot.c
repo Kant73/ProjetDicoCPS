@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <string.h>
 
 #ifndef MOT
 #define MOT
@@ -46,4 +47,40 @@ void create_mot(char* word, int num_ligne, int num_col, mot_t mot)
 
 	mot.queue_mot = ma;
 	*/
+}
+
+int compare_mot(mot_t m1, mot_t m2){
+	/*m1 et m2 sont des mots non nuls*/
+	char* c1, c2;
+
+	//les mots ne sont pas vides, on récupère les chaines de caractère
+	c1=maillon_to_string(m1.tete_mot);
+	c2=maillon_to_string(m2.tete_mot);
+ 
+	return strcmp(c1, c2);
+}
+
+
+
+void insertion_dico(dico* d, mot_t m){
+	/*Insère un mot m non nul dans un dico d quelconque*/
+	dico* d_suiv=d;
+
+	//Parcourir dico tant que d_suiv est non nul
+	while(d_suiv!=NULL){
+		bool b=compare_mot((*d_suiv).mot.tete_mot,m);
+		//Tester si le mot auquel on a à faire est identique
+		if(b==0)){
+			ajoute_mot(d_suiv,m);
+		}
+		else{ 		//Si non : Si il est plus grand (alphabétiquement) on continue
+			if(b<0){
+				d_suiv=(*d_suiv).suiv;
+			}else{ //Si il est plus petit, on l'insère avant
+				insere_mot(d_suiv,m);
+			}
+		}
+	}
+	//Si d_suiv est nul insérer le mot m
+	insere_mot(d_suiv,m);
 }

@@ -43,3 +43,6 @@ typedef struct dico
 void print_mot(mot_t m);
 
 void create_mot(char* word, int num_ligne, int num_col, mot_t mot);
+
+int compare_mot(mot_t m1, mot_t m2);
+void insertion_dico(dico* d, mot_t m);
