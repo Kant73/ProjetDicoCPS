@@ -17,54 +17,70 @@
 
 void print_mot(mot_t m)
 {
+	printf("BEGIN PRINT MOT\n");
 	printf("%s ", maillon_to_string(m.tete_mot));
+
 	emplacement_t* tete = m.tete_liste;
 	do
 	{
 		printf("(%d, %d) ", (*tete).ligne, (*tete).colonne);
 		tete = (*tete).suiv;
-	} while (tete!=m.queue_liste);
+	} while (tete!=NULL);
 	printf("\n");
 }
 
 
 void create_mot(char* word, int num_ligne, int num_col, mot_t* mot)
 {
-	//maillon* ma;
-	//printf("LOL1\n");
+	maillon* ma;
+	(*mot).tete_mot = (maillon*) malloc(sizeof(struct maillon));
+	(*mot).queue_mot = (maillon*) malloc(sizeof(struct maillon));
 	string_to_maillon(word, (*mot).tete_mot);
-	//printf("LOL2\n");
-	emplacement_t empl;
-	empl.ligne = num_ligne;
-	empl.colonne = num_col;
-	
 
-	//mot.tete_mot = ma;
-	(*mot).tete_liste = &empl;
-	(*mot).queue_liste = &empl;
-	/*
+	emplacement_t* empl;
+	empl = (emplacement_t*) malloc(sizeof(emplacement_t));
+	(*empl).ligne = num_ligne;
+	(*empl).colonne = num_col;
+
+	(*mot).tete_liste = empl;
+	(*mot).queue_liste = empl;
+	
+	ma = (*mot).tete_mot;
 	while((*ma).suiv!=NULL)
 	{
 		ma = (*ma).suiv;
 	}
 
-	mot.queue_mot = ma;
-	*/
+	(*mot).queue_mot = ma;
+
+	(*mot).suiv = NULL;
+	
 }
-/*
+
 int compare_mot(mot_t m1, mot_t m2){
 	//m1 et m2 sont des mots non nuls
-	char* c1, c2;
+	char* c1;
+	char* c2;
 
+	printf("maillon_to_string 0\n");
 	//les mots ne sont pas vides, on récupère les chaines de caractère
 	c1=maillon_to_string(m1.tete_mot);
+	printf("maillon_to_string c1\n");
 	c2=maillon_to_string(m2.tete_mot);
- 
+ 	printf("maillon_to_string c2\n");
+
+ 	printf("c1: %s\n", c1);
+ 	printf("c2: %s\n", c2);
 	return strcmp(c1, c2);
 }
 
+int compare_mot2(mot_t m1, mot_t m2)
+{
+	return 0;
+}
 
 
+/*
 void insertion_dico(dico_t* d, mot_t m){
 	//Insère un mot m non nul dans un dico d quelconque
 	dico_t* d_suiv=d;

@@ -18,9 +18,6 @@
 #include "maillon.h"
 #endif
 
-
-
-
 typedef struct emplacement
 {
     int ligne;
@@ -36,14 +33,11 @@ typedef struct mot
     maillon* queue_mot;
     emplacement_t* tete_liste;
     emplacement_t* queue_liste;
+    struct mot* suiv;
 } mot_t; 
 //typedef mot* mot_t;
 
-typedef struct dico 
-{
-	mot_t mot;
-	mot_t* suiv;
-} dico_t;
+
 
 /**
 * Affiche un mot et ses emplacements dans le texte
@@ -66,7 +60,9 @@ void create_mot(char* word, int num_ligne, int num_col, mot_t* mot);
 * @param m2 :
 * @return :
 */
-//int compare_mot(mot_t m1, mot_t m2);
+int compare_mot(mot_t m1, mot_t m2);
+
+int compare_mot2(mot_t m1, mot_t m2);
 
 /**
 * Insère un mot dans le dictionnaire dans l'ordre alphabtique

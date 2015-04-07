@@ -47,7 +47,7 @@ int main(void)
 
 
 	//Test de string_to_maillon
-	char* chaine = "luciaboly";
+	char* chaine = "salutlescopainscommentcava";
 	char* chaine2 = NULL;
 	maillon m1;
 	maillon m2;
@@ -94,6 +94,16 @@ int main(void)
 		printf("Lettre n°%d: %c\n",j, c);
 	}
 
+	printf("m1.suiv.suiv: %d\n", *(m1.suiv));
+	//printf("m_der = m1.suiv ?: %d\n", m_der );
+	for (j = 0; j <= 5; j++)
+	{
+		c = get_charnum(j, *((*(m1.suiv)).suiv));
+		printf("Lettre n°%d: %c\n",j, c);
+	}
+
+
+	//printf("get nb_lettres : %d\n", get_nb_lettres(&m1));
 	chaine2 = maillon_to_string(&m1);
 	printf("chaine2 : %s\n", chaine2);
 
@@ -105,20 +115,33 @@ int main(void)
 	//void create_mot(char* word, int num_ligne, int num_col, mot_t mot);
 
 	mot_t mot1;
-	mot1.tete_mot = (maillon*) malloc(sizeof(struct maillon));
-	mot1.queue_mot = (maillon*) malloc(sizeof(struct maillon));
-	create_mot("salutleszi", 12, 18, &mot1);
+	//mot1.tete_mot = (maillon*) malloc(sizeof(struct maillon));
+	//mot1.queue_mot = (maillon*) malloc(sizeof(struct maillon));
+	create_mot("salutleszigotololo", 12, 18, &mot1);
 
-	
+	mot_t mot2;
+	mot2.tete_mot = (maillon*) malloc(sizeof(struct maillon));
+	mot2.queue_mot = (maillon*) malloc(sizeof(struct maillon));
+	create_mot("coucou", 8, 10, &mot2);
 
+	printf("CREATE_MOT DONE\n");
 
-
+	printf("maillon_to_string(mot1 tete): %s\n", maillon_to_string(mot1.tete_mot));
+	printf("maillon_to_string(mot1 queue): %s\n", maillon_to_string(mot1.queue_mot));
+	printf("emplacement ligne(mot1): %d\n", (*(mot1.tete_liste)).ligne );
+	printf("emplacement colonne (mot1): %d\n", (*(mot1.tete_liste)).colonne );
+	printf("maillon_to_string(mot2 tete): %s\n", maillon_to_string(mot2.tete_mot));
+	printf("maillon_to_string(mot2 queue): %s\n", maillon_to_string(mot2.queue_mot));
+	printf("emplacement ligne(mot1): %d\n", (*(mot2.tete_liste)).ligne );
+	printf("emplacement colonne (mot1): %d\n", (*(mot2.tete_liste)).colonne );
 	//Test de print_mot
 	//void print_mot(mot_t m);
 	
 	print_mot(mot1);
+	print_mot(mot2);
 
-
+	printf("compare_mot: %d\n", compare_mot(mot2, mot1));
 
 	return 0;
+
 }

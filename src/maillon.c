@@ -37,11 +37,13 @@ int get_nb_lettres(maillon* m)
     {
         l<<=5;
         nb_lettres++;
-        if((nb_lettres==5)&&((*m_courant).suiv!=NULL)){ 
+        if((nb_lettres%6==0)&&((*m_courant).suiv!=NULL)){ 
         //si on a atteint la fin du maillon et qu'il y en a encore à tester
         	m_courant=(*m_courant).suiv; //on teste sur les maillons suivants
         	l=(*m_courant).val; //on récupère la suite du mot
+        	l <<= 2;	// Pour supprimer les bits 30 et 31
         }
+        //printf("nb_lettres: %d\n", nb_lettres);
     }
     return nb_lettres;
 }
