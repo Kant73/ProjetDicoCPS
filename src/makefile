@@ -4,12 +4,12 @@ CC=gcc
 CFLAGS=-I../include/ -Wall
 FLAGSSO=-L../lib/liblinux64/ -ltokenize
 #SRCS temporaire
-SRCS= maillon.o lettres.o test_q.o mot.o
+SRCS= maillon.o lettres.o test_e.o mot.o
 EXEC=main
 
-#Première cible : executable de test_q temporaire
-test_q: $(SRCS)
-	$(CC) -o test_q $(SRCS)
+#Première cible : executable de test_e temporaire
+test_e: $(SRCS)
+	$(CC) -o test_e $(SRCS)
 
 all:
 	$(CC) $(CFLAGS) main.c -o $(EXEC) $(FLAGSSO)
@@ -30,5 +30,5 @@ clean:
 	rm -rf *.o
 
 mrproper: clean
-	rm -rf test_q
+	rm -rf test_e
 	

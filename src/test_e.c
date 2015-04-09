@@ -22,12 +22,18 @@ int main(void)
 {
 
 	mot_t mot1;
-	create_mot("jesuislemotun", 1, 1, &mot1);
+	create_mot("jesuislemotabc", 1, 1, &mot1);
 
 	mot_t mot2;
 	//mot2.tete_mot = (maillon*) malloc(sizeof(struct maillon));
 	//mot2.queue_mot = (maillon*) malloc(sizeof(struct maillon));
-	create_mot("jesuislemotdeux", 8, 10, &mot2);
+	create_mot("jesuislemotdef", 8, 10, &mot2);
+
+	mot_t mot3;
+	create_mot("jesuislemotghi", 8, 10, &mot3);
+
+	mot_t mot4;
+	create_mot("jesuislemotj", 8, 10, &mot4);
 
 	printf("CREATE_MOT DONE\n");
 
@@ -35,25 +41,37 @@ int main(void)
 	print_mot(mot1);
 	printf("mot2: \n");
 	print_mot(mot2);
+	printf("mot3: \n");
+	print_mot(mot3);
+	printf("mot4: \n");
+	print_mot(mot4);
 
 	//Tests de dico
-
+/*
 	printf("mot1.suiv :'%d\n", mot1.suiv);
 	printf("mot2.suiv :'%d\n", mot2.suiv);
 	printf("adresse de mot1 : %d\n", &mot1);
-	printf("adresse de mot2 : %d\n", &mot2);
+	printf("adresse de mot2 : %d\n", &mot2);*/
 
 	mot_t* dico=NULL; //On crée un dico et on l'initialise à NULL
-	printf("dico :'%d\n", dico);
+	printf("dico :'%d\n On ajoute mot2 à dico (vide)\n", dico);
+	insertion_dico(&dico, &mot2); //On ajoute mot2 à dico
+	affiche_dico(dico);
+	printf("dico :'%d\n On ajoute mot1 à dico (tete de liste non vide)\n", dico);
 	insertion_dico(&dico, &mot1); //On ajoute mot1 à dico
-	printf("dico :'%d\n", dico);
-	insertion_dico(&dico, &mot2); //On ajoute mot1 à dico
-	printf("dico :'%d\n", dico);
-
+	affiche_dico(dico);
+	printf("dico :'%d\n On ajoute mot4 à dico (fin de dico)\n", dico);
+	insertion_dico(&dico, &mot4); //On ajoute mot4 à dico
+	affiche_dico(dico);
+	printf("dico :'%d\n On ajoute mot3 à dico (milieu de dico)\n", dico);
+	insertion_dico(&dico, &mot3); //On ajoute mot3 à dico
+	affiche_dico(dico);
+	//printf("dico :'%d\n", dico);
+/*
 	printf("adresse de mot1 : %d\n", &mot1);
 	printf("adresse de mot2 : %d\n", &mot2);
 
-	printf("mot2.suiv (devrait être égal à l'adresse de mot1): %d\n", mot2.suiv);
+	printf("mot2.suiv (devrait être égal à l'adresse de mot1): %d\n", mot2.suiv);*/
 
 	affiche_dico(dico);
 

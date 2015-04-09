@@ -70,6 +70,8 @@ int compare_mot2(mot_t m1, mot_t m2);
 */
 void affiche_dico(mot_t* dico);
 
+void ajoute_empl(mot_t* mot_cour, mot_t mot);
+
 /**
 * Insère un mot dans le dictionnaire dans l'ordre alphabtique
 * @param d :

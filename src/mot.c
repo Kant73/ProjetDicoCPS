@@ -98,46 +98,68 @@ void affiche_dico(mot_t* dico){
 }
 
 
+void ajoute_empl(mot_t* ptr_mot_init, mot_t mot_ajout){
+	emplacement_t* nouv_empl=mot_ajout.tete_liste;			//On récupère un ptr vers le emplacement de mot_ajout
+	(*((*ptr_mot_init).queue_liste)).suiv=nouv_empl; 		//On chaine le dernier emplacement du mot initial à la nouvelle valeur
+	(*ptr_mot_init).queue_liste=nouv_empl;					//Et on modifie la queue de liste du mot initial
+}
+
+/*void insertion_dico_tete(mot_t** dico, mot_t* mot){
+	mot_t* mot_cour=*dico;	//On initialise notre pointeur de parcours sur le début du dictionnaire
+		//On insère le mot en tete du dictionnaire dico 
+	(*mot).suiv=mot_cour;		//On chaine le mot en tête du dictionnaire
+	mot_cour=mot;				//On raccroche la tete du dictionnaire au mot
+		//print_mot(*mot_cour);
+	*dico=mot_cour;
+	}*/
+
+
+//gère le cas d'insertion en fin du dico, en tête de dico et dans un dico vide
 void insertion_dico(mot_t** dico, mot_t* mot){
 	//Insère un mot m non nul dans un dico d quelconque
-	mot_t* dico_cour=*dico;	//On initialise notre pointeur de parcours sur le début du dictionnaire
-	//mot_t* dico_prec=NULL;
-	#ifdef _DEBUG
-	printf("DEBUT TEST INSERT DICO\n");
-	if(dico_cour!=NULL) print_mot(**dico);
-	printf("MILIEU TEST INSERT DICO\n");
-	#endif
-
-	//On insère le mot en tete du dictionnaire dico:
-	(*mot).suiv=dico_cour;		//On chaine le mot en tête du dictionnaire
-	dico_cour=mot;			//On raccroche la tete du dictionnaire au mot
-	//print_mot(*dico_cour); 
-	*dico=dico_cour;
-
-	//printf("FIN TEST INSERT DICO\n");
-}
-/*
-void insertion_dico(dico_t* d, mot_t m){
-	//Insère un mot m non nul dans un dico d quelconque
-	dico_t* d_suiv=d;
-
-	//Parcourir dico tant que d_suiv est non nul
-	while(d_suiv!=NULL){
-	int ent=compare_mot((*d_suiv).mot.tete_mot,m);
-		//Tester si le mot auquel on a à faire est identique
-		if(ent==0)){
-			ajoute_mot(d_suiv,m);
+	mot_t* mot_cour=*dico;	//On initialise notre pointeur de parcours sur le début du dictionnaire
+	mot_t* mot_prec=NULL;
+			#ifdef _DEBUG
+			printf("DEBUT TEST INSERT DICO\n");
+			if(mot_cour!=NULL) print_mot(**dico);
+			printf("MILIEU TEST INSERT DICO\n");
+			#endif
+	
+	while(mot_cour!=NULL){ //tant que le dictionnaire n'est pas vide
+		int cmp =compare_mot(*mot, *mot_cour);
+		if(cmp==0){						//mot et mot_cour sont identiques
+			ajoute_empl(mot_cour, *mot);	//On ajoute l'emplacement de mot dans mot_cour
+			(*mot_prec).suiv=mot_cour;		//mot_prec.suiv pointe sur le nouveau mot
+			return;							//Le mot a été placé, on quitte l'insertion
 		}
-		else{ 		//Si non : Si il est plus grand (alphabétiquement) on continue
-			if(ent<0){
-				d_suiv=(*d_suiv).suiv;
-			}else{ //Si il est plus petit, on l'insère avant
-				insere_mot(d_suiv,m);
+		else{
+			if(cmp<0){			//mot est plus petit que mot_cour, on le place juste avant:
+				(*mot).suiv=mot_cour;		//On chaine le mot avant le mot courant
+				if(mot_prec!=NULL){			//Si le mot présédent existe
+					(*mot_prec).suiv=mot;		//On le raccroche au mot
+				}else{						//Sinon on est en tête de dictionnaire
+					*dico=mot;					//On raccroche celui ci au mot
+				}
+				return;						//Le mot a été placé, on quitte l'insertion
+			}else{				//mot est plus grand que mot_cour, 
+								//on continue le parcours de dico sauf si le mot suivant est nul
+				if((*mot_cour).suiv!=0){
+					mot_prec=mot_cour;			//le mot courant devient le mot précédent
+					mot_cour=(*mot_cour).suiv;	//le mot suivant devient le mot courant
+				}else{			//dans ce cas on place le mot à la fin du dico
+					(*mot).suiv=NULL;		//On chaine le mot comme étant la fin du dico
+					(*mot_cour).suiv=mot;	//On raccroche le mot courant au mot
+					return;					//On a placé le mot, on quitte l'insertion
+				}
 			}
 		}
 	}
-	//Si d_suiv est nul insérer le mot m
-	insere_mot(d_suiv,m);
-}
+	//Ici le dico est vide :
+	//On insère le mot en tete de dico :
+	(*mot).suiv=mot_cour;		//On chaine le mot en tête du dictionnaire (il est vide alors ces pointeurs sont nuls)
+	mot_cour=mot;				//On raccroche la tete du dictionnaire au mot
+		//print_mot(*mot_cour);
+	*dico=mot_cour;
 
-*/
+	//printf("FIN TEST INSERT DICO\n");
+}
