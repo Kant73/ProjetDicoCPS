@@ -64,9 +64,15 @@ int compare_mot(mot_t m1, mot_t m2);
 
 int compare_mot2(mot_t m1, mot_t m2);
 
+
+/**
+* @param dico : dictionnaire (pointeur sur une cellule de mot)
+*/
+void affiche_dico(mot_t* dico);
+
 /**
 * Insère un mot dans le dictionnaire dans l'ordre alphabtique
 * @param d :
 * @param m : mot à afficher
 */
-//void insertion_dico(dico_t* d, mot_t m);
+void insertion_dico(mot_t** dico, mot_t* mot);

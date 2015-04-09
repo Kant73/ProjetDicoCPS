@@ -17,7 +17,9 @@
 
 void print_mot(mot_t m)
 {
+	#ifdef _DEBUG
 	printf("BEGIN PRINT MOT\n");
+	#endif
 	printf("%s ", maillon_to_string(m.tete_mot));
 
 	emplacement_t* tete = m.tete_liste;
@@ -62,24 +64,58 @@ int compare_mot(mot_t m1, mot_t m2){
 	char* c1;
 	char* c2;
 
-	printf("maillon_to_string 0\n");
 	//les mots ne sont pas vides, on récupère les chaines de caractère
 	c1=maillon_to_string(m1.tete_mot);
-	printf("maillon_to_string c1\n");
 	c2=maillon_to_string(m2.tete_mot);
- 	printf("maillon_to_string c2\n");
 
+	#ifdef _DEBUG
+	printf("maillon_to_string c1\n");
+ 	printf("maillon_to_string c2\n");
  	printf("c1: %s\n", c1);
  	printf("c2: %s\n", c2);
+	#endif
+
 	return strcmp(c1, c2);
 }
 
+#ifdef _DEBUG
 int compare_mot2(mot_t m1, mot_t m2)
 {
 	return 0;
 }
+#endif
 
 
+void affiche_dico(mot_t* dico){
+	printf("Dictionnaire : \n");
+	mot_t* dico_temp=dico;
+
+	while(dico_temp!=NULL){
+		print_mot(*dico_temp);
+		//printf("dico.suiv :'%d\n", (*dico_temp).suiv);
+		dico_temp=(*dico_temp).suiv;
+	}
+}
+
+
+void insertion_dico(mot_t** dico, mot_t* mot){
+	//Insère un mot m non nul dans un dico d quelconque
+	mot_t* dico_cour=*dico;	//On initialise notre pointeur de parcours sur le début du dictionnaire
+	//mot_t* dico_prec=NULL;
+	#ifdef _DEBUG
+	printf("DEBUT TEST INSERT DICO\n");
+	if(dico_cour!=NULL) print_mot(**dico);
+	printf("MILIEU TEST INSERT DICO\n");
+	#endif
+
+	//On insère le mot en tete du dictionnaire dico:
+	(*mot).suiv=dico_cour;		//On chaine le mot en tête du dictionnaire
+	dico_cour=mot;			//On raccroche la tete du dictionnaire au mot
+	//print_mot(*dico_cour); 
+	*dico=dico_cour;
+
+	//printf("FIN TEST INSERT DICO\n");
+}
 /*
 void insertion_dico(dico_t* d, mot_t m){
 	//Insère un mot m non nul dans un dico d quelconque

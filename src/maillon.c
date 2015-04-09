@@ -168,7 +168,9 @@ char* maillon_to_string(maillon* m)
 
 	//On calcule la taille du mot que l'on veut récupérer
 	int taille=get_nb_lettres(m); 
+	#ifdef _DEBUG
 	printf("taille :%d\n",taille);
+	#endif
 	chaine=(char*)malloc(taille*sizeof(char)+1);
 
 	//On parcours le maillon en remplissant la chaine
