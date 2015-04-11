@@ -17,102 +17,78 @@
 #include "mot.h"
 #endif
 
-//Executable utilisé pour les tests
+/**
+* @file test_e.c
+* @author Elsa Navarro & Quentin Dunand
+* @date 04/2015
+*/
+
+//Executable utilisé pour les tests des fonctions dico
 int main(void)
 {
 
 	mot_t mot1;
-	create_mot("arbre", 1, 1, &mot1);
+	create_mot("elephant", 8, 10, &mot1);
 
 	mot_t* dico=NULL; //On crée un dico et on l'initialise à NULL
-	printf("dico :'%d\n On ajoute mot1 à dico (vide)\n", dico);
-	insertion_dico(&dico, &mot1); //On ajoute mot2 à dico
-	affiche_dico(dico);
-
-	create_mot("elephant", 8, 10, &mot1);
-	printf("dico :'%d\n On ajoute mot1 à dico (tete de liste non vide)\n", dico);
+	printf("dico :'%p\n On ajoute elephant à dico (vide)\n", dico);
 	insertion_dico(&dico, &mot1); //On ajoute mot1 à dico
 	affiche_dico(dico);
 
-	create_mot("pc", 48, 7, &mot1);
-	printf("dico :'%d\n On ajoute mot1 à dico (tete de liste non vide)\n", dico);
+	create_mot("arbre", 1, 1, &mot1);
+	printf("dico :'%p\n On ajoute arbre à dico (tete de dico non vide)\n", dico);
 	insertion_dico(&dico, &mot1); //On ajoute mot1 à dico
 	affiche_dico(dico);
 
 	create_mot("statue", 1, 5, &mot1);
-	printf("dico :'%d\n On ajoute mot1 à dico (tete de liste non vide)\n", dico);
+	printf("dico :'%p\n On ajoute statue à dico (fin de dico non vide)\n", dico);
+	insertion_dico(&dico, &mot1); //On ajoute mot1 à dico
+	affiche_dico(dico);
+
+	create_mot("pc", 48, 7, &mot1);
+	printf("dico :'%p\n On ajoute pc à dico (milieu de dico)\n", dico);
 	insertion_dico(&dico, &mot1); //On ajoute mot1 à dico
 	affiche_dico(dico);
 
 	create_mot("elephant", 3, 12, &mot1);
-	printf("dico :'%d\n On ajoute mot1 à dico (tete de liste non vide)\n", dico);
+	printf("dico :'%p\n On rajoute elephant à dico \n", dico);
 	insertion_dico(&dico, &mot1); //On ajoute mot1 à dico
 	affiche_dico(dico);
 
 	create_mot("arbre", 3, 12, &mot1);
-	printf("dico :'%d\n On ajoute mot1 à dico (tete de liste non vide)\n", dico);
+	printf("dico :'%p\n On rajoute arbre à dico \n", dico);
 	insertion_dico(&dico, &mot1); //On ajoute mot1 à dico
 	affiche_dico(dico);
 
-	create_mot("arbre", 9, 2, &mot1);
-	printf("dico :'%d\n On ajoute mot1 à dico (tete de liste non vide)\n", dico);
+	create_mot("arbrea", 9, 2, &mot1);
+	printf("dico :'%p\n On rajoute arbrea à dico\n", dico);
 	insertion_dico(&dico, &mot1); //On ajoute mot1 à dico
 	affiche_dico(dico);
-/*
-	printf("CREATE_MOT DONE\n");
 
-	printf("mot1: \n");
-	print_mot(mot1);
-	printf("mot2: \n");
-	print_mot(mot2);
-	printf("mot3: \n");
-	print_mot(mot3);
-	printf("mot4: \n");
-	print_mot(mot4);
-	printf("mot5: \n");
-	print_mot(mot5);
-	printf("mot6: \n");
-	print_mot(mot6);
-	printf("mot7: \n");
-	print_mot(mot7);*/
-
-	//Tests de dico
-/*
-	printf("mot1.suiv :'%d\n", mot1.suiv);
-	printf("mot2.suiv :'%d\n", mot2.suiv);
-	printf("adresse de mot1 : %d\n", &mot1);
-	printf("adresse de mot2 : %d\n", &mot2);*/
-/*
-	printf("dico :'%d\n On ajoute mot4 à dico (fin de dico)\n", dico);
-	insertion_dico(&dico, &mot4); //On ajoute mot4 à dico
+	create_mot("aa", 9, 2, &mot1);
+	printf("dico :'%p\n On rajoute aa à dico\n", dico);
+	insertion_dico(&dico, &mot1); //On ajoute mot1 à dico
 	affiche_dico(dico);
-	printf("dico :'%d\n On ajoute mot3 à dico (milieu de dico)\n", dico);
-	insertion_dico(&dico, &mot3); //On ajoute mot3 à dico
+
+	create_mot("aaaaa", 9, 2, &mot1);
+	printf("dico :'%p\n On rajoute aaaaa à dico\n", dico);
+	insertion_dico(&dico, &mot1); //On ajoute mot1 à dico
 	affiche_dico(dico);
-	printf("dico :'%d\n On ajoute mot5 à dico (même valeur que mot2)\n", dico);
-	insertion_dico(&dico, &mot5); //On ajoute mot5 à dico
+
+	create_mot("aaaaaa", 9, 2, &mot1);
+	printf("dico :'%p\n On rajoute aaaaaa à dico\n", dico);
+	insertion_dico(&dico, &mot1); //On ajoute mot1 à dico
 	affiche_dico(dico);
-	printf("dico :'%d\n On ajoute mot6 à dico (même valeur que mot1)\n", dico);
-	insertion_dico(&dico, &mot6); //On ajoute mot5 à dico
+
+	create_mot("aaaaaaa", 9, 2, &mot1);
+	printf("dico :'%p\n On rajoute aaaaaaa à dico\n", dico);
+	insertion_dico(&dico, &mot1); //On ajoute mot1 à dico
 	affiche_dico(dico);
-	printf("dico :'%d\n On ajoute mot7 à dico (même valeur que mot4)\n", dico);
-	insertion_dico(&dico, &mot7); //On ajoute mot5 à dico
-	affiche_dico(dico);*/
-	//printf("dico :'%d\n", dico);
-/*
-	printf("adresse de mot1 : %d\n", &mot1);
-	printf("adresse de mot2 : %d\n", &mot2);
 
-	printf("mot2.suiv (devrait être égal à l'adresse de mot1): %d\n", mot2.suiv);*/
-
-	//affiche_dico(dico);
-
-	return 0;
-
-	
-
-
-
+	create_mot("abaaaa", 9, 2, &mot1);
+	printf("dico :'%p\n On rajoute abaaaa à dico\n", dico);
+	insertion_dico(&dico, &mot1); //On ajoute mot1 à dico
+	affiche_dico(dico);
 
 	return 0;
 }

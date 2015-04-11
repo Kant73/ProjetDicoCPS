@@ -2,6 +2,11 @@
 #include <stdlib.h>
 #include <stdint.h>
 
+/**
+* @file mot.c
+* @author Elsa Navarro & Quentin Dunand
+* @date 04/2015
+*/
 
 typedef uint32_t lettres;
 

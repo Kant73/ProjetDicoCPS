@@ -11,7 +11,7 @@
 /**
  * Mot.c
  * @author Quentin DUNAND and Elsa Navarro
- * 
+ * @date 11/04/2015
  */
 
 
@@ -31,9 +31,9 @@ void print_mot(mot_t m)
 
 void create_mot(char* word, int num_ligne, int num_col, mot_t* mot)
 {
-	maillon* ma;
-	(*mot).tete_mot = (maillon*) malloc(sizeof(struct maillon));
-	(*mot).queue_mot = (maillon*) malloc(sizeof(struct maillon));
+	maillon_t* ma;
+	(*mot).tete_mot = (maillon_t*) malloc(sizeof(maillon_t));
+	(*mot).queue_mot = (maillon_t*) malloc(sizeof(maillon_t));
 	string_to_maillon(word, (*mot).tete_mot);
 
 	emplacement_t* empl;
@@ -75,12 +75,55 @@ int compare_mot(mot_t m1, mot_t m2){
 	return strcmp(c1, c2);
 }
 
-#ifdef _DEBUG
-int compare_mot2(mot_t m1, mot_t m2)
-{
-	return 0;
+int compare_mot2(mot_t m1, mot_t m2){
+	//m1 et m2 sont des mots non nuls
+	int i=0;
+	maillon_t mail1=(*(m1.tete_mot));
+	maillon_t mail2=(*(m2.tete_mot));
+	char c1=get_charnum(i,mail1);
+	char c2=get_charnum(i,mail2);
+
+
+	#ifdef _DEBUG
+	printf("maillon_to_string c1\n");
+ 	printf("maillon_to_string c2\n");
+ 	printf("c1: %s\n", c1);
+ 	printf("c2: %s\n", c2);
+	#endif
+
+ 	while(char_to_num(c1)!=0){
+ 		if(c2==c1){//Les caractères sont égaux
+ 				//On avance dans les mots
+		 	i++;
+		 	//Si 
+		 	if(i==6){	//On a fini un maillon
+		 		i=0;
+		 		if(mail1.suiv==NULL){	//Si le maillon 1 est nul
+		 			if(mail2.suiv==NULL) return 0; //Si le 2e l'est aussi ils sont égaux
+		 			return -1;	//Sinon le 2e est plus grand, on renvoie un nb négatif
+		 		}
+		 		if(mail2.suiv==NULL) return 1;//Ici le maillon 2 est nul mais pas le maillon 1 => on retourne un entier positif
+		 		//On est ici assuré que l'on peut accéder au maillon suivant
+
+		 		mail2=*(mail2.suiv);
+		 		mail1=*(mail1.suiv);
+
+				c1=get_charnum(i,mail1);
+				c2=get_charnum(i,mail2);
+		 	}
+		 	else{	//On passe au caractère suivant du maillon
+
+			c1=get_charnum(i,mail1);
+			c2=get_charnum(i,mail2);
+		 	}
+ 		}
+ 		else{
+ 			return char_to_num(c1)-char_to_num(c2);
+ 		}
+ 	}
+ 	
+	return char_to_num(c1)-char_to_num(c2);
 }
-#endif
 
 
 void affiche_dico(mot_t* dico){
@@ -120,7 +163,13 @@ void insertion_dico(mot_t** dico, mot_t* mot){
 			#endif
 	
 	while(mot_cour!=NULL){ //tant que le dictionnaire n'est pas vide
-		int cmp =compare_mot(*mot_ajout, *mot_cour);
+		int cmp=compare_mot2(*mot_ajout, *mot_cour);
+
+		if((cmp!=compare_mot(*mot_ajout, *mot_cour))&&(cmp*compare_mot(*mot_ajout, *mot_cour)<0)){
+			printf("Compare mot incorrect !!!!\n"); //Si c'est différent et que leur produit est négatif, alors le résultat de cmp est faux !!!
+		}
+
+
 		if(cmp==0){						//mot et mot_cour sont identiques
 			ajoute_empl(mot_cour, *mot_ajout);	//On ajoute l'emplacement de mot dans mot_cour
 			if(mot_prec!=NULL){			//Si le mot présédent existe
@@ -131,7 +180,6 @@ void insertion_dico(mot_t** dico, mot_t* mot){
 		else{
 			if(cmp<0){			//mot est plus petit que mot_cour, on le place juste avant:
 				(*mot_ajout).suiv=mot_cour;		//On chaine le mot avant le mot courant
-				printf("On place le mot avant mot_cour \n mot_prec=%d\n", mot_prec);
 				if(mot_prec!=NULL){			//Si le mot présédent existe
 					(*mot_prec).suiv=mot_ajout;		//On le raccroche au mot
 				}else{						//Sinon on est en tête de dictionnaire

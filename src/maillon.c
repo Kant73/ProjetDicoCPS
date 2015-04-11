@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "lettres.h"
 #include "maillon.h"
 
 /**
  * Maillon.c
+ * @author Quentin DUNAND and Elsa Navarro
+ * @date 04/2015
  */
 
 /*
@@ -27,10 +28,10 @@ int get_nb_bits(int a)
 }
 
 
-int get_nb_lettres(maillon* m)
+int get_nb_lettres(maillon_t* m)
 {
 	lettres l=(*m).val;
-	maillon* m_courant=m;
+	maillon_t* m_courant=m;
     int nb_lettres=0;
     l <<= 2;	// Pour supprimer les bits 30 et 31
     while(l)
@@ -51,14 +52,14 @@ int get_nb_lettres(maillon* m)
 
 
 //get_charnum fonctionnel comme désiré dans le sujet (bit 29-25 : lettre 0, bit 24-20 : lettre 1 etc..)
-char get_charnum(int k, maillon m){
+char get_charnum(int k, maillon_t m){
 	int mask = 0b11111;
-	int nb_bits = get_nb_bits(m.val);
+	//int nb_bits = get_nb_bits(m.val);
 	return num_to_char(((m.val & (mask<<(30-(5*(k+1)))))>>(30-(5*(k+1)))));
 }
 
 
-void set_charnum(int k, char c, maillon *m){
+void set_charnum(int k, char c, maillon_t *m){
 	//Initialisation
 	int mask_one = 0b111111111111111111111111111111;
 	int mask_char = char_to_num(c); //représentation du caractère c en décimal.
@@ -79,73 +80,36 @@ void set_charnum(int k, char c, maillon *m){
 	(*m).val = (*m).val | (mask_char << (5*(5-k)));
 }
 
-void string_to_maillon(char* chaine, maillon* m)
+void string_to_maillon(char* chaine, maillon_t* m)
 {
 
-	maillon* der_m = NULL;
+	maillon_t* der_m = NULL;
 	int i = 0;
 	int saut = 0;
 	char c=*chaine;
 
-	//m=(maillon*) malloc(sizeof(struct maillon*));
-
-	//printf("der_m : %d\n", der_m);
-
 	der_m = m;
-
-	//printf("der_m : %d\n", der_m);
 
 	while(c!='\0') //Tant que ce n'est pas la fin du mot
 	{
 		if(i>5){
 			//on passe au maillon suivant lorsque le maillon courant est plein
-			//maillon m2;
-			(*der_m).suiv = (maillon*) malloc(sizeof(struct maillon));
+			(*der_m).suiv = (maillon_t*) malloc(sizeof(maillon_t));
 			der_m=(*der_m).suiv;
-			//der_m = (maillon*) malloc(sizeof(struct maillon));
 			(*der_m).val = 0;
-			//printf("der_m : %d\n", der_m);
-			//printf("i: %d\n", i);
 			i=0;
 			saut = saut + 6;
-			//printf("DEBUT TEST if\n");
 		}
-		//printf("string_to_maillon 1\n");
 		set_charnum(i,c, der_m);
-		//printf("string_to_maillon 2\n");
-		//printf("c: %c\n",c );
 		i++;
 		c=*(chaine+i+saut);
 	}
-
-	//printf("m : %d\n", m);
-	//printf("m.suiv : %d\n", (*m).suiv);
-	//printf("der_m.suiv.val: %d\n", (*der_m).val);
-	//printf("der_m : %d\n", der_m);
-	//printf("DEBUT TEST\n");
-	/*
-	char c2 ;
-	int j = 0;
-	for (j = 0; j <= 5; j++)
-	{
-		c2 = get_charnum(j, *der_m);
-		printf("Lettre n°%d: %c\n",j, c2);
-	}
-	printf("FIN TEST\n");
-	*/
-	
 }
 
 
-maillon ajouter_maillon(maillon ajoute, maillon m)
+maillon_t ajouter_maillon(maillon_t ajoute, maillon_t m)
 {
-	/*
-	maillon* m2 = malloc(sizeof(maillon));
-	(*m2).val = val;
-	(*m2).suiv = NULL;
-	*/
-
-	maillon m3 = m;
+	maillon_t m3 = m;
 	while(m3.suiv != NULL)
 	{
 		m3 = *(m3.suiv);
@@ -158,13 +122,13 @@ maillon ajouter_maillon(maillon ajoute, maillon m)
 
 
 
-char* maillon_to_string(maillon* m)
+char* maillon_to_string(maillon_t* m)
 {
 	//Définition des variables locales et initialisation
 	char* chaine=NULL;
 	int i=0;
 	int saut=0;				//variable grâce à laquelle on connait le caractère effectif
-	maillon* m_temp=m;
+	maillon_t* m_temp=m;
 
 	//On calcule la taille du mot que l'on veut récupérer
 	int taille=get_nb_lettres(m); 
@@ -176,8 +140,7 @@ char* maillon_to_string(maillon* m)
 	//On parcours le maillon en remplissant la chaine
 	while(saut+i<taille){
 		*(chaine+i+saut)=get_charnum(i,*m_temp); 
-		//printf("chaine : %s\n", chaine);
-		//printf("i : %d", i);
+
 		if(i==5){
 			i=0;							//reinitialisation de i à 0
 			saut=saut+6;					//on doit sauter 6 lettres

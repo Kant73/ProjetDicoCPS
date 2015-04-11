@@ -1,16 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "lettres.h"
 
-typedef struct maillon maillon;
-struct maillon
+#ifndef LETTRES
+#define LETTRES
+#include "lettres.h"
+#endif
+
+/**
+* @file maillon.c
+* @author Elsa Navarro & Quentin Dunand
+* @date 04/2015
+*/
+
+typedef struct maillon 
 {
     lettres val;
     struct maillon *suiv;
-}; 
-
-// Inutile, du moins pour le moment
-//typedef maillon* maillon_t;
+} maillon_t; 
 
 
 /**
@@ -19,7 +25,7 @@ struct maillon
  * @param c : caractère à inserer
  * @param m : maillon à modifier
  */
-void set_charnum(int k, char c, maillon *m);
+void set_charnum(int k, char c, maillon_t *m);
 
 
 /**
@@ -27,7 +33,7 @@ void set_charnum(int k, char c, maillon *m);
  * @param k : indice entier compris entre 0 et 5
  * @param m : maillon à consulter
  */
-char get_charnum(int k, maillon m);
+char get_charnum(int k, maillon_t m);
 
 
 /**
@@ -40,18 +46,18 @@ int get_nb_bits(int a);
 
 /**
  * Retourne le nombre de lettre d'un maillon
- * @param  m [description]
- * @return   [description]
+ * @param  m maillon
+ * @return   le nombre de lettre contenues dans le maillon
  */
-int get_nb_lettres(maillon* m);
+int get_nb_lettres(maillon_t* m);
 
 /**
  * Convertit une chaine de caractère en liste de maillons
  * @param chaine : chaine à convertir
  * @param m : maillon converti
- * @param der_m : pointeur vers le ddernier maillon
+ * @param der_m : pointeur vers le dernier maillon
  */
-void string_to_maillon(char* chaine, maillon* m);
+void string_to_maillon(char* chaine, maillon_t* m);
 
 /**
  * Convertit une liste de maillons en chaine de caractères
@@ -59,10 +65,16 @@ void string_to_maillon(char* chaine, maillon* m);
  * @param taille : taille du mot
  * @return : la chaine de caractères convertie
  */
-char* maillon_to_string(maillon* m);
+char* maillon_to_string(maillon_t* m);
 
 
-
+/*
+* Renvoie le maillon m auquel on a raccroché le maillon ajoute
+* @param ajoute : maillon que l'on veut raccrocher
+* @param m : maillon initial non modifié
+* @return : nouveau maillon qui contient m suivi de ajoute
+*/
+maillon_t ajouter_maillon(maillon_t ajoute, maillon_t m);
 
 
 
@@ -81,5 +93,4 @@ char* maillon_to_string(maillon* m);
 char* itoa(int value, char* result, int base);
 
 
-maillon ajouter_maillon(maillon ajoute, maillon m);
 

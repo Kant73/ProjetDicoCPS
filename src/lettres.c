@@ -2,6 +2,12 @@
 #include <stdlib.h>
 #include <stdint.h>
 
+/**
+* @file lettres.c
+* @author Elsa Navarro & Quentin Dunand
+* @date 04/2015
+*/
+
 
 
 int char_to_num(char c){ 
@@ -12,15 +18,3 @@ int char_to_num(char c){
 char num_to_char(int n){
 	return (char)(n+'a'-1);
 }
-
-/*
-int main(void){
-
-	//Test des fonctions
-	int b = 3;
-	char b2 = num_to_char(b);
-	int c = char_to_num(b2);
-	printf("%d\n", c);
-
-	return 0;
-}*/
