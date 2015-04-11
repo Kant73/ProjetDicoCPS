@@ -33,7 +33,7 @@ int get_nb_lettres(maillon_t* m)
 	lettres l=(*m).val;
 	maillon_t* m_courant=m;
     int nb_lettres=0;
-    l <<= 2;	// Pour supprimer les bits 30 et 31
+    l <<= 2;	// Pour "supprimer" les bits 30 et 31
     while(l)
     {
         l<<=5;
@@ -42,7 +42,7 @@ int get_nb_lettres(maillon_t* m)
         //si on a atteint la fin du maillon et qu'il y en a encore à tester
         	m_courant=(*m_courant).suiv; //on teste sur les maillons suivants
         	l=(*m_courant).val; //on récupère la suite du mot
-        	l <<= 2;	// Pour supprimer les bits 30 et 31
+        	l <<= 2;	// Pour "supprimer" les bits 30 et 31
         }
         //printf("nb_lettres: %d\n", nb_lettres);
     }
@@ -107,21 +107,6 @@ void string_to_maillon(char* chaine, maillon_t* m)
 }
 
 
-maillon_t ajouter_maillon(maillon_t ajoute, maillon_t m)
-{
-	maillon_t m3 = m;
-	while(m3.suiv != NULL)
-	{
-		m3 = *(m3.suiv);
-	}
-	m3.suiv = &ajoute;
-	return m;
-}
-
-
-
-
-
 char* maillon_to_string(maillon_t* m)
 {
 	//Définition des variables locales et initialisation
@@ -153,10 +138,6 @@ char* maillon_to_string(maillon_t* m)
 	*(chaine+taille)='\0';
 	return chaine;
 }
-
-
-
-
 
 
 char* itoa(int value, char* result, int base) {

@@ -12,7 +12,10 @@
 #include "maillon.h"
 #endif
 
+#ifndef MOT
+#define MOT
 #include "mot.h"
+#endif
 
 
 /**
@@ -28,7 +31,7 @@ int main(int argc, char const *argv[])
 	mot_t* dico = NULL;
 	unsigned int nbligne = 0;
 	unsigned int nbcolonne = 0;
-	int i = 1;
+	int i = 0;
 	
 
     if (argc > 2)	// Si on met plus de 2 arguments : message d'erreur
@@ -52,15 +55,15 @@ int main(int argc, char const *argv[])
 	    {
 	    	mot_t m;
 	    	mot = next_word(fichier, &nbligne, &nbcolonne);
+	    	i++;				//Compteur de mot, on vient d'en lire un, on l'incrémente donc
 	    	create_mot(mot, nbligne,nbcolonne,&m);
 	    	insertion_dico(&dico,&m);
 	    	//printf("Mot n°%d: %s \n",i, mot);
-	    	i++;
 	    }
 	    affiche_dico(dico);
-	    printf("%s*****************************************\n", KRED);
+	    printf("%s******************************************\n", KRED);
 	    printf("Fin du Dictionnaire, nombre de mots : %d\n", i);
-	    printf("*****************************************%s\n", KNRM);
+	    printf("******************************************%s\n", KNRM);
     }
 
 	return 0;

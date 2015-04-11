@@ -32,27 +32,27 @@ void print_mot(mot_t m)
 void create_mot(char* word, int num_ligne, int num_col, mot_t* mot)
 {
 	maillon_t* ma;
-	(*mot).tete_mot = (maillon_t*) malloc(sizeof(maillon_t));
-	(*mot).queue_mot = (maillon_t*) malloc(sizeof(maillon_t));
+	(*mot).tete_mot = (maillon_t*) malloc(sizeof(maillon_t));	//malloc pour allouer la mémoire nécéssaire
+	(*mot).queue_mot = (maillon_t*) malloc(sizeof(maillon_t));	//pour les pointeurs sur maillons
 	string_to_maillon(word, (*mot).tete_mot);
 
 	emplacement_t* empl;
-	empl = (emplacement_t*) malloc(sizeof(emplacement_t));
+	empl = (emplacement_t*) malloc(sizeof(emplacement_t));		//idem qu'au dessus mais pour un emplacement_t
 	(*empl).ligne = num_ligne;
 	(*empl).colonne = num_col;
 
-	(*mot).tete_liste = empl;
-	(*mot).queue_liste = empl;
+	(*mot).tete_liste = empl;	//Lors de la création d'un mot, il n'existe qu'a un seul emplacement
+	(*mot).queue_liste = empl;	//conséquence: (*mot).tete_liste == (*mot).queue_liste
 	
-	ma = (*mot).tete_mot;
-	while((*ma).suiv!=NULL)
-	{
+	ma = (*mot).tete_mot;	//On veut le dernier maillon du mot pour faire pointer
+	while((*ma).suiv!=NULL)	//(*mot).queue_mot dessus
+	{						
 		ma = (*ma).suiv;
 	}
 
-	(*mot).queue_mot = ma;
+	(*mot).queue_mot = ma; 	//On fait pointer (*mot).queue_mot sur le dernier maillon qui compose le mot
 
-	(*mot).suiv = NULL;
+	(*mot).suiv = NULL;		//Il n'y a pas de mot suivant, on init le pointeur suiv à NULL
 	
 }
 
@@ -127,7 +127,9 @@ int compare_mot2(mot_t m1, mot_t m2){
 
 
 void affiche_dico(mot_t* dico){
+	printf("%s**************\n", KRED);
 	printf("Dictionnaire : \n");
+	printf("**************%s\n", KNRM);;
 	mot_t* dico_temp=dico;
 
 	while(dico_temp!=NULL){
@@ -165,10 +167,11 @@ void insertion_dico(mot_t** dico, mot_t* mot){
 	while(mot_cour!=NULL){ //tant que le dictionnaire n'est pas vide
 		int cmp=compare_mot2(*mot_ajout, *mot_cour);
 
+		#ifdef _DEBUG
 		if((cmp!=compare_mot(*mot_ajout, *mot_cour))&&(cmp*compare_mot(*mot_ajout, *mot_cour)<0)){
 			printf("Compare mot incorrect !!!!\n"); //Si c'est différent et que leur produit est négatif, alors le résultat de cmp est faux !!!
 		}
-
+		#endif
 
 		if(cmp==0){						//mot et mot_cour sont identiques
 			ajoute_empl(mot_cour, *mot_ajout);	//On ajoute l'emplacement de mot dans mot_cour

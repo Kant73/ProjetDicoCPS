@@ -12,6 +12,19 @@
 #include "maillon.h"
 #endif
 
+/*Constantes utilisées pour les couleurs dans le shell */
+#ifndef COULEUR
+#define COULEUR
+#define KNRM  "\x1B[0m"
+#define KRED  "\x1B[31m"
+#define KGRN  "\x1B[32m"
+#define KYEL  "\x1B[33m"
+#define KBLU  "\x1B[34m"
+#define KMAG  "\x1B[35m"
+#define KCYN  "\x1B[36m"
+#define KWHT  "\x1B[37m"
+#endif
+
 /**
 * @file mot.c
 * @author Elsa Navarro & Quentin Dunand
@@ -54,13 +67,19 @@ void print_mot(mot_t m);
 void create_mot(char* word, int num_ligne, int num_col, mot_t* mot);
 
 /**
-* Compare deux mots selon leur ordre alphabétique
+* Compare deux mots selon leur ordre alphabétique avec la fonction strcmp (non utilisé dans le projet)
 * @param m1 : 1er mot
-* @param m2 : 2e mot
+* @param m2 : 2ème mot
 * @return : 0 si les mots sont identiques, un nombre négatif si le 1er est inférieur au second, un nombre positif sinon.
 */
 int compare_mot(mot_t m1, mot_t m2);
 
+/**
+* Compare deux mots selon leur ordre alphabétique (fonction utilisée dans le projet en utilisant get_charnum)
+* @param m1 : 1er mot
+* @param m2 : 2ème mot
+* @return : 0 si les mots sont identiques, un nombre négatif si le 1er est inférieur au second, un nombre positif sinon.
+*/
 int compare_mot2(mot_t m1, mot_t m2);
 
 
