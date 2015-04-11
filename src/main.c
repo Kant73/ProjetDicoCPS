@@ -25,7 +25,7 @@ int main(int argc, char const *argv[])
 {
 	FILE *fichier = NULL;
 	char* mot;
-	mot_t* dico;
+	mot_t* dico = NULL;
 	unsigned int nbligne = 0;
 	unsigned int nbcolonne = 0;
 	int i = 1;
@@ -54,10 +54,13 @@ int main(int argc, char const *argv[])
 	    	mot = next_word(fichier, &nbligne, &nbcolonne);
 	    	create_mot(mot, nbligne,nbcolonne,&m);
 	    	insertion_dico(&dico,&m);
-	    	printf("Mot n°%d: %s \n",i, mot);
+	    	//printf("Mot n°%d: %s \n",i, mot);
 	    	i++;
 	    }
 	    affiche_dico(dico);
+	    printf("%s*****************************************\n", KRED);
+	    printf("Fin du Dictionnaire, nombre de mots : %d\n", i);
+	    printf("*****************************************%s\n", KNRM);
     }
 
 	return 0;
