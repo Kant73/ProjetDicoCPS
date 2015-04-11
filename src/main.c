@@ -12,13 +12,11 @@
 #include "maillon.h"
 #endif
 
-#ifndef MOT
-#define MOT
 #include "mot.h"
-#endif
+
 
 /**
- * Team #4 : (DUNAND & NAVARRO) FOR LIFE
+ * Team #4 : (DUNAND & NAVARRO)
  * @author : Quentin DUNAND & Elsa NAVARRO
  * @project : Projet Dictionnaire CPS 2015 
  */
