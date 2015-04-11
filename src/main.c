@@ -2,6 +2,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#ifndef LETTRES
+#define LETTRES
+#include "lettres.h"
+#endif
+
+#ifndef MAILLON
+#define MAILLON
+#include "maillon.h"
+#endif
+
+#ifndef MOT
+#define MOT
+#include "mot.h"
+#endif
+
 /**
  * Team #4 : (DUNAND & NAVARRO) FOR LIFE
  * @author : Quentin DUNAND & Elsa NAVARRO
@@ -12,6 +27,7 @@ int main(int argc, char const *argv[])
 {
 	FILE *fichier = NULL;
 	char* mot;
+	mot_t* dico;
 	unsigned int nbligne = 0;
 	unsigned int nbcolonne = 0;
 	int i = 1;
@@ -36,10 +52,14 @@ int main(int argc, char const *argv[])
 
     	while (!feof(fichier))	// POur l'instant, le main ne fait que afficher les mots du texte qu'on lui a donné
 	    {
+	    	mot_t m;
 	    	mot = next_word(fichier, &nbligne, &nbcolonne);
+	    	create_mot(mot, nbligne,nbcolonne,&m);
+	    	insertion_dico(&dico,&m);
 	    	printf("Mot n°%d: %s \n",i, mot);
 	    	i++;
 	    }
+	    affiche_dico(dico);
     }
 
 	return 0;

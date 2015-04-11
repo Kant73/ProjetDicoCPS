@@ -22,18 +22,18 @@ int main(void)
 {
 
 	mot_t mot1;
-	create_mot("jesuislemotabc", 1, 1, &mot1);
+	create_mot("arbre", 1, 1, &mot1);
 
 	mot_t mot2;
 	//mot2.tete_mot = (maillon*) malloc(sizeof(struct maillon));
 	//mot2.queue_mot = (maillon*) malloc(sizeof(struct maillon));
-	create_mot("jesuislemotdef", 8, 10, &mot2);
+	create_mot("elephant", 8, 10, &mot2);
 
 	mot_t mot3;
-	create_mot("jesuislemotghi", 8, 10, &mot3);
+	create_mot("pc", 48, 7, &mot3);
 
 	mot_t mot4;
-	create_mot("jesuislemotj", 8, 10, &mot4);
+	create_mot("statue", 1, 5, &mot4);
 
 	printf("CREATE_MOT DONE\n");
 
