@@ -17,16 +17,15 @@
 
 void print_mot(mot_t m)
 {
-	#ifdef _DEBUG
-	printf("BEGIN PRINT MOT\n");
-	#endif
+		//printf("BEGIN PRINT MOT\n");
 	printf("%s ", maillon_to_string(m.tete_mot));
 
 	emplacement_t* tete = m.tete_liste;
 	do
-	{
+	{		//printf("(*tete).suiv =%d\n", (*tete).suiv);
 		printf("(%d, %d) ", (*tete).ligne, (*tete).colonne);
 		tete = (*tete).suiv;
+			//printf("tete = %d\n", tete);
 	} while (tete!=NULL);
 	printf("\n");
 }
@@ -99,9 +98,17 @@ void affiche_dico(mot_t* dico){
 
 
 void ajoute_empl(mot_t* ptr_mot_init, mot_t mot_ajout){
-	emplacement_t* nouv_empl=mot_ajout.tete_liste;			//On récupère un ptr vers le emplacement de mot_ajout
+	//On crée un nouvel emplacement
+	emplacement_t* nouv_empl=(emplacement_t*)malloc(sizeof(emplacement_t));
+	(*nouv_empl).ligne=(*mot_ajout.tete_liste).ligne;			 //On lui assigne les valeurs de l'emplacement de mot_ajout
+	(*nouv_empl).colonne=(*mot_ajout.tete_liste).colonne;
+	(*nouv_empl).suiv=NULL;
+		//printf("On le rajoute à la queue_liste de mot initial : \nAvant :(*((*ptr_mot_init).queue_liste)).suiv= %d\n", (*((*ptr_mot_init).queue_liste)).suiv);
 	(*((*ptr_mot_init).queue_liste)).suiv=nouv_empl; 		//On chaine le dernier emplacement du mot initial à la nouvelle valeur
+		//printf("Après :(*((*ptr_mot_init).queue_liste)).suiv= %d\n", (*((*ptr_mot_init).queue_liste)).suiv);
+		//printf("nouv_empl= %d\n", nouv_empl);
 	(*ptr_mot_init).queue_liste=nouv_empl;					//Et on modifie la queue de liste du mot initial
+		//printf("La queue de liste pointe vers nouv_empl : \n (*ptr_mot_init).queue_liste= %d \n nouv_empl= %d\n", (*ptr_mot_init).queue_liste, nouv_empl);
 }
 
 /*void insertion_dico_tete(mot_t** dico, mot_t* mot){
@@ -126,15 +133,22 @@ void insertion_dico(mot_t** dico, mot_t* mot){
 			#endif
 	
 	while(mot_cour!=NULL){ //tant que le dictionnaire n'est pas vide
+			printf("On compare les deux mots : mot= %d, mot_cour=%d, mot_prec=%d\n", mot, mot_cour, mot_prec);
 		int cmp =compare_mot(*mot, *mot_cour);
+			printf("Les deux mots ont été comparés\n");
 		if(cmp==0){						//mot et mot_cour sont identiques
+				//printf("Le mot existe déjà dans le dico\n");
 			ajoute_empl(mot_cour, *mot);	//On ajoute l'emplacement de mot dans mot_cour
-			(*mot_prec).suiv=mot_cour;		//mot_prec.suiv pointe sur le nouveau mot
+				//printf("On a ajouté l'emplacement du mot à insérer\n");
+			if(mot_prec!=NULL){			//Si le mot présédent existe
+				(*mot_prec).suiv=mot_cour;		//mot_prec.suiv pointe sur le nouveau mot
+			}							//Sinon on est en tête de dictionnaire, mot_cour==*dico on ne fait rien
 			return;							//Le mot a été placé, on quitte l'insertion
 		}
 		else{
 			if(cmp<0){			//mot est plus petit que mot_cour, on le place juste avant:
 				(*mot).suiv=mot_cour;		//On chaine le mot avant le mot courant
+				printf("On place le mot avant mot_cour \n mot_prec=%d\n", mot_prec);
 				if(mot_prec!=NULL){			//Si le mot présédent existe
 					(*mot_prec).suiv=mot;		//On le raccroche au mot
 				}else{						//Sinon on est en tête de dictionnaire

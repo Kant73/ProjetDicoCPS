@@ -10,7 +10,7 @@ struct maillon
 }; 
 
 // Inutile, du moins pour le moment
-typedef maillon* maillon_t;
+//typedef maillon* maillon_t;
 
 
 /**
