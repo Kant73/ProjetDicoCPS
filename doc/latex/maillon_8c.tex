@@ -1,0 +1,178 @@
+\hypertarget{maillon_8c}{\section{Référence du fichier /home/quentin/\-Documents/polytech/\-C\-P\-S/\-Projet/\-Projet\-\_\-\-Dict/src/maillon.c}
+\label{maillon_8c}\index{/home/quentin/\-Documents/polytech/\-C\-P\-S/\-Projet/\-Projet\-\_\-\-Dict/src/maillon.\-c@{/home/quentin/\-Documents/polytech/\-C\-P\-S/\-Projet/\-Projet\-\_\-\-Dict/src/maillon.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}maillon.\-h\char`\"{}}\\*
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{maillon_8c_af8771c21eea664aae24ac534c1bcefe6}{get\-\_\-nb\-\_\-bits} (int a)
+\begin{DoxyCompactList}\small\item\em Retourne le nombre de bits d'un entier. \end{DoxyCompactList}\item 
+int \hyperlink{maillon_8c_ace1c7bfd86c9c60ef9bd14b36a7e51a4}{get\-\_\-nb\-\_\-lettres} (\hyperlink{structmaillon}{maillon\-\_\-t} $\ast$m)
+\begin{DoxyCompactList}\small\item\em Retourne le nombre de lettre d'un maillon. \end{DoxyCompactList}\item 
+char \hyperlink{maillon_8c_ab9d7219ae7110cb0f19b3bdd697dcbf2}{get\-\_\-charnum} (int k, \hyperlink{structmaillon}{maillon\-\_\-t} m)
+\begin{DoxyCompactList}\small\item\em Retourne la k-\/ieme lettre du maillon. \end{DoxyCompactList}\item 
+void \hyperlink{maillon_8c_a0ece2664d78e943bd9d8b2673104f677}{set\-\_\-charnum} (int k, char c, \hyperlink{structmaillon}{maillon\-\_\-t} $\ast$m)
+\begin{DoxyCompactList}\small\item\em Modifie la k-\/ieme lettre d'un maillon par le caractère \char`\"{}c\char`\"{}. \end{DoxyCompactList}\item 
+void \hyperlink{maillon_8c_af5ad4d53f9bc68aa4cbfea432ad0cea5}{string\-\_\-to\-\_\-maillon} (char $\ast$chaine, \hyperlink{structmaillon}{maillon\-\_\-t} $\ast$m)
+\begin{DoxyCompactList}\small\item\em Convertit une chaine de caractère en liste de maillons. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{maillon_8c_a8ebc8bd0a60877a7b86643d110bd6e9c}{maillon\-\_\-to\-\_\-string} (\hyperlink{structmaillon}{maillon\-\_\-t} $\ast$m)
+\begin{DoxyCompactList}\small\item\em Convertit une liste de maillons en chaine de caractères. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{maillon_8c_a22e98a8cf2e2c79d738830b387cace28}{itoa} (int value, char $\ast$result, int base)
+\begin{DoxyCompactList}\small\item\em C version 0.\-4 char$\ast$ style \char`\"{}itoa\char`\"{}\-: Written by Lukás Chmela Released under G\-P\-Lv3. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+\begin{DoxyAuthor}{Auteur}
+Elsa Navarro \& Quentin Dunand 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+04/2015 
+\end{DoxyDate}
+
+
+\subsection{Documentation des fonctions}
+\hypertarget{maillon_8c_ab9d7219ae7110cb0f19b3bdd697dcbf2}{\index{maillon.\-c@{maillon.\-c}!get\-\_\-charnum@{get\-\_\-charnum}}
+\index{get\-\_\-charnum@{get\-\_\-charnum}!maillon.c@{maillon.\-c}}
+\subsubsection[{get\-\_\-charnum}]{\setlength{\rightskip}{0pt plus 5cm}char get\-\_\-charnum (
+\begin{DoxyParamCaption}
+\item[{int}]{k, }
+\item[{{\bf maillon\-\_\-t}}]{m}
+\end{DoxyParamCaption}
+)}}\label{maillon_8c_ab9d7219ae7110cb0f19b3bdd697dcbf2}
+
+
+Retourne la k-\/ieme lettre du maillon. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em k} & Indice entier compris entre 0 et 5 \\
+\hline
+{\em m} & La maillon dont on veut connaitre la k-\/ème lettre \\
+\hline
+\end{DoxyParams}
+\hypertarget{maillon_8c_af8771c21eea664aae24ac534c1bcefe6}{\index{maillon.\-c@{maillon.\-c}!get\-\_\-nb\-\_\-bits@{get\-\_\-nb\-\_\-bits}}
+\index{get\-\_\-nb\-\_\-bits@{get\-\_\-nb\-\_\-bits}!maillon.c@{maillon.\-c}}
+\subsubsection[{get\-\_\-nb\-\_\-bits}]{\setlength{\rightskip}{0pt plus 5cm}int get\-\_\-nb\-\_\-bits (
+\begin{DoxyParamCaption}
+\item[{int}]{a}
+\end{DoxyParamCaption}
+)}}\label{maillon_8c_af8771c21eea664aae24ac534c1bcefe6}
+
+
+Retourne le nombre de bits d'un entier. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em a} & L'entier dont on veut connaitre le nombre de bits \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le nombre de bits de l'entier \char`\"{}a\char`\"{} 
+\end{DoxyReturn}
+\hypertarget{maillon_8c_ace1c7bfd86c9c60ef9bd14b36a7e51a4}{\index{maillon.\-c@{maillon.\-c}!get\-\_\-nb\-\_\-lettres@{get\-\_\-nb\-\_\-lettres}}
+\index{get\-\_\-nb\-\_\-lettres@{get\-\_\-nb\-\_\-lettres}!maillon.c@{maillon.\-c}}
+\subsubsection[{get\-\_\-nb\-\_\-lettres}]{\setlength{\rightskip}{0pt plus 5cm}int get\-\_\-nb\-\_\-lettres (
+\begin{DoxyParamCaption}
+\item[{{\bf maillon\-\_\-t} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}}\label{maillon_8c_ace1c7bfd86c9c60ef9bd14b36a7e51a4}
+
+
+Retourne le nombre de lettre d'un maillon. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em m} & Le maillon dont on veut connaitre le nombre de lettre \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le nombre de lettre contenues dans le maillon 
+\end{DoxyReturn}
+\hypertarget{maillon_8c_a22e98a8cf2e2c79d738830b387cace28}{\index{maillon.\-c@{maillon.\-c}!itoa@{itoa}}
+\index{itoa@{itoa}!maillon.c@{maillon.\-c}}
+\subsubsection[{itoa}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ itoa (
+\begin{DoxyParamCaption}
+\item[{int}]{value, }
+\item[{char $\ast$}]{result, }
+\item[{int}]{base}
+\end{DoxyParamCaption}
+)}}\label{maillon_8c_a22e98a8cf2e2c79d738830b387cace28}
+
+
+C version 0.\-4 char$\ast$ style \char`\"{}itoa\char`\"{}\-: Written by Lukás Chmela Released under G\-P\-Lv3. 
+
+Utilisation d'une fonction C existante mais qui n'est plus présente avec G\-C\-C, peut être obselète... Permet de convertir un int \char`\"{}value\char`\"{} en une string \char`\"{}result\char`\"{} qui est la représentation du \char`\"{}value\char`\"{} en base \char`\"{}base\char`\"{} Non utilisée dans le projet mais utilisé surant la phase de developpement pour debugger certaine fonctions 
+\begin{DoxyParams}{Paramètres}
+{\em value} & L'entier dont on veut la representation dans la base \char`\"{}base\char`\"{} \\
+\hline
+{\em result} & La chaine résulat qui va contenir la représentation de \char`\"{}value\char`\"{} dans la base \char`\"{}base\char`\"{} \\
+\hline
+{\em base} & La base dans laquelle on veut obtenir la représentation de \char`\"{}value\char`\"{}. \char`\"{}base\char`\"{} doit être compris entre 2 et 36. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+L'entier \char`\"{}value\char`\"{} dans la base \char`\"{}base\char`\"{} sous la forme d'une chaîne de caractère 
+\end{DoxyReturn}
+\hypertarget{maillon_8c_a8ebc8bd0a60877a7b86643d110bd6e9c}{\index{maillon.\-c@{maillon.\-c}!maillon\-\_\-to\-\_\-string@{maillon\-\_\-to\-\_\-string}}
+\index{maillon\-\_\-to\-\_\-string@{maillon\-\_\-to\-\_\-string}!maillon.c@{maillon.\-c}}
+\subsubsection[{maillon\-\_\-to\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ maillon\-\_\-to\-\_\-string (
+\begin{DoxyParamCaption}
+\item[{{\bf maillon\-\_\-t} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}}\label{maillon_8c_a8ebc8bd0a60877a7b86643d110bd6e9c}
+
+
+Convertit une liste de maillons en chaine de caractères. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em m} & La liste de maillons à convertir en chaine de caractères \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+La liste de maillons convertie en chaine de caractères 
+\end{DoxyReturn}
+\hypertarget{maillon_8c_a0ece2664d78e943bd9d8b2673104f677}{\index{maillon.\-c@{maillon.\-c}!set\-\_\-charnum@{set\-\_\-charnum}}
+\index{set\-\_\-charnum@{set\-\_\-charnum}!maillon.c@{maillon.\-c}}
+\subsubsection[{set\-\_\-charnum}]{\setlength{\rightskip}{0pt plus 5cm}void set\-\_\-charnum (
+\begin{DoxyParamCaption}
+\item[{int}]{k, }
+\item[{char}]{c, }
+\item[{{\bf maillon\-\_\-t} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}}\label{maillon_8c_a0ece2664d78e943bd9d8b2673104f677}
+
+
+Modifie la k-\/ieme lettre d'un maillon par le caractère \char`\"{}c\char`\"{}. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em k} & Indice entier supérieur à 0 \\
+\hline
+{\em c} & Caractère à inserer à la position \char`\"{}k\char`\"{} \\
+\hline
+{\em m} & Maillon dont on veut modifier la k-\/ième lettre \\
+\hline
+\end{DoxyParams}
+\hypertarget{maillon_8c_af5ad4d53f9bc68aa4cbfea432ad0cea5}{\index{maillon.\-c@{maillon.\-c}!string\-\_\-to\-\_\-maillon@{string\-\_\-to\-\_\-maillon}}
+\index{string\-\_\-to\-\_\-maillon@{string\-\_\-to\-\_\-maillon}!maillon.c@{maillon.\-c}}
+\subsubsection[{string\-\_\-to\-\_\-maillon}]{\setlength{\rightskip}{0pt plus 5cm}void string\-\_\-to\-\_\-maillon (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{chaine, }
+\item[{{\bf maillon\-\_\-t} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}}\label{maillon_8c_af5ad4d53f9bc68aa4cbfea432ad0cea5}
+
+
+Convertit une chaine de caractère en liste de maillons. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em chaine} & La chaine à convertir en maillons \\
+\hline
+{\em m} & Le maillon qui correspond à la chaine convertie \\
+\hline
+\end{DoxyParams}

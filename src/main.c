@@ -19,11 +19,20 @@
 
 
 /**
- * Team #4 : (DUNAND & NAVARRO)
- * @author : Quentin DUNAND & Elsa NAVARRO
- * @project : Projet Dictionnaire CPS 2015 
+ * @file 		main.c
+ * @brief 		Programme principal permettant d'obtenir le dictionnaire soit d'un fichier soit d'un texte tapé par l'utilisateur
+ * @author		Quentin DUNAND & Elsa NAVARRO
+ * @date 		04/2015
  */
 
+/**
+ * Programme principal permettant d'obtenir le dictionnaire soit d'un fichier soit d'un texte tapé par l'utilisateur
+ * Utilisation du main : ./main [nom_de_fichier]
+ * Si l'utilisateur ne tape aucun nom de fichier en argument, alors celui-ci pourra taper son texte lui même au clavier
+ * @param  argc 
+ * @param  argv 
+ * @return      Le code d'erreur
+ */
 int main(int argc, char const *argv[])
 {
 	FILE *fichier = NULL;

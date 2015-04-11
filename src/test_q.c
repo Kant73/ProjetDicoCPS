@@ -17,7 +17,14 @@
 #include "mot.h"
 #endif
 
-//Executable utilisé pour les tests
+/**
+* @file 	test_q.c
+* @brief 	Programme de tests pour les fonctions de lettres.c et maillon.c
+* @author 	Elsa Navarro & Quentin Dunand
+* @date 	04/2015
+*/
+
+
 int main(void)
 {
 	maillon m;

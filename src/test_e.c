@@ -18,9 +18,10 @@
 #endif
 
 /**
-* @file test_e.c
-* @author Elsa Navarro & Quentin Dunand
-* @date 04/2015
+* @file 	test_e.c
+* @brief 	Programme de tests pour les fonctions de mot.c
+* @author 	Elsa Navarro & Quentin Dunand
+* @date 	04/2015
 */
 
 //Executable utilisé pour les tests des fonctions dico

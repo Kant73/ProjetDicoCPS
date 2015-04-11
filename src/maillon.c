@@ -3,12 +3,6 @@
 #include <string.h>
 #include "maillon.h"
 
-/**
- * Maillon.c
- * @author Quentin DUNAND and Elsa Navarro
- * @date 04/2015
- */
-
 /*
 //Version qui fonctionne à l'envers (bit 29-25 : lettre 5, bit 24-20 : lettre 4 etc..)
 char get_charnum(int k, maillon m){

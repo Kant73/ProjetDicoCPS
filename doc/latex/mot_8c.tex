@@ -1,0 +1,179 @@
+\hypertarget{mot_8c}{\section{Référence du fichier /home/quentin/\-Documents/polytech/\-C\-P\-S/\-Projet/\-Projet\-\_\-\-Dict/src/mot.c}
+\label{mot_8c}\index{/home/quentin/\-Documents/polytech/\-C\-P\-S/\-Projet/\-Projet\-\_\-\-Dict/src/mot.\-c@{/home/quentin/\-Documents/polytech/\-C\-P\-S/\-Projet/\-Projet\-\_\-\-Dict/src/mot.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}mot.\-h\char`\"{}}\\*
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{mot_8c_a05a897e44a94954a8c0175ead661de96}{print\-\_\-mot} (\hyperlink{structmot}{mot\-\_\-t} m)
+\begin{DoxyCompactList}\small\item\em Mot.\-c. \end{DoxyCompactList}\item 
+void \hyperlink{mot_8c_a0ade0cca9aed333397eeff74d0186275}{create\-\_\-mot} (char $\ast$word, int num\-\_\-ligne, int num\-\_\-col, \hyperlink{structmot}{mot\-\_\-t} $\ast$\hyperlink{structmot}{mot})
+\begin{DoxyCompactList}\small\item\em Crée un mot à partir de son emplacement dans le texte. \end{DoxyCompactList}\item 
+int \hyperlink{mot_8c_a687bf4e9b8570c1ba2b9f61a0b064876}{compare\-\_\-mot} (\hyperlink{structmot}{mot\-\_\-t} m1, \hyperlink{structmot}{mot\-\_\-t} m2)
+\begin{DoxyCompactList}\small\item\em Compare deux mots selon leur ordre alphabétique avec la fonction strcmp (non utilisé dans le projet \-: voir compare\-\_\-mot2) \end{DoxyCompactList}\item 
+int \hyperlink{mot_8c_a5b9673fecebd5aa8e7e69b645517059b}{compare\-\_\-mot2} (\hyperlink{structmot}{mot\-\_\-t} m1, \hyperlink{structmot}{mot\-\_\-t} m2)
+\begin{DoxyCompactList}\small\item\em Compare deux mots selon leur ordre alphabétique (fonction utilisée dans le projet en utilisant get\-\_\-charnum) \end{DoxyCompactList}\item 
+void \hyperlink{mot_8c_af78657ce73da3ca30cc5c2ec808c4ed8}{affiche\-\_\-dico} (\hyperlink{structmot}{mot\-\_\-t} $\ast$dico)
+\begin{DoxyCompactList}\small\item\em Affiche le dictionnaire passé en paramètre. \end{DoxyCompactList}\item 
+void \hyperlink{mot_8c_a42b974393b747a0aa3dbc3a40504c775}{ajoute\-\_\-empl} (\hyperlink{structmot}{mot\-\_\-t} $\ast$ptr\-\_\-mot\-\_\-init, \hyperlink{structmot}{mot\-\_\-t} mot\-\_\-ajout)
+\begin{DoxyCompactList}\small\item\em Ajoute l'emplacement contenu dans mot à la suite de la liste d'emplacements de mot\-\_\-cour. \end{DoxyCompactList}\item 
+void \hyperlink{mot_8c_a21f7f5012d4a2615df94b5c897b84fd7}{insertion\-\_\-dico} (\hyperlink{structmot}{mot\-\_\-t} $\ast$$\ast$dico, \hyperlink{structmot}{mot\-\_\-t} $\ast$\hyperlink{structmot}{mot})
+\begin{DoxyCompactList}\small\item\em Insère un mot dans le dictionnaire dans l'ordre alphabtique. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+\begin{DoxyAuthor}{Auteur}
+Elsa Navarro \& Quentin Dunand 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+04/2015 
+\end{DoxyDate}
+
+
+\subsection{Documentation des fonctions}
+\hypertarget{mot_8c_af78657ce73da3ca30cc5c2ec808c4ed8}{\index{mot.\-c@{mot.\-c}!affiche\-\_\-dico@{affiche\-\_\-dico}}
+\index{affiche\-\_\-dico@{affiche\-\_\-dico}!mot.c@{mot.\-c}}
+\subsubsection[{affiche\-\_\-dico}]{\setlength{\rightskip}{0pt plus 5cm}void affiche\-\_\-dico (
+\begin{DoxyParamCaption}
+\item[{{\bf mot\-\_\-t} $\ast$}]{dico}
+\end{DoxyParamCaption}
+)}}\label{mot_8c_af78657ce73da3ca30cc5c2ec808c4ed8}
+
+
+Affiche le dictionnaire passé en paramètre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dico} & Le dictionnaire (pointeur sur une cellule de mot) qu'on veut afficher \\
+\hline
+\end{DoxyParams}
+\hypertarget{mot_8c_a42b974393b747a0aa3dbc3a40504c775}{\index{mot.\-c@{mot.\-c}!ajoute\-\_\-empl@{ajoute\-\_\-empl}}
+\index{ajoute\-\_\-empl@{ajoute\-\_\-empl}!mot.c@{mot.\-c}}
+\subsubsection[{ajoute\-\_\-empl}]{\setlength{\rightskip}{0pt plus 5cm}void ajoute\-\_\-empl (
+\begin{DoxyParamCaption}
+\item[{{\bf mot\-\_\-t} $\ast$}]{mot\-\_\-cour, }
+\item[{{\bf mot\-\_\-t}}]{mot}
+\end{DoxyParamCaption}
+)}}\label{mot_8c_a42b974393b747a0aa3dbc3a40504c775}
+
+
+Ajoute l'emplacement contenu dans mot à la suite de la liste d'emplacements de mot\-\_\-cour. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em mot\-\_\-cour} & Le mot\-\_\-t contenant une liste d'emplacements auquel on veut rajouter l'emplacement de mot \\
+\hline
+{\em mot} & Le mot contenant un unique emplacement qu'on veut rajouter à la liste d'emplacement de mot\-\_\-cour \\
+\hline
+\end{DoxyParams}
+\hypertarget{mot_8c_a687bf4e9b8570c1ba2b9f61a0b064876}{\index{mot.\-c@{mot.\-c}!compare\-\_\-mot@{compare\-\_\-mot}}
+\index{compare\-\_\-mot@{compare\-\_\-mot}!mot.c@{mot.\-c}}
+\subsubsection[{compare\-\_\-mot}]{\setlength{\rightskip}{0pt plus 5cm}int compare\-\_\-mot (
+\begin{DoxyParamCaption}
+\item[{{\bf mot\-\_\-t}}]{m1, }
+\item[{{\bf mot\-\_\-t}}]{m2}
+\end{DoxyParamCaption}
+)}}\label{mot_8c_a687bf4e9b8570c1ba2b9f61a0b064876}
+
+
+Compare deux mots selon leur ordre alphabétique avec la fonction strcmp (non utilisé dans le projet \-: voir compare\-\_\-mot2) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em m1} & Le 1er mot à comparer \\
+\hline
+{\em m2} & Le 2ème mot à comparer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si les mots sont identiques, un nombre négatif si le 1er est inférieur au second, un nombre positif sinon. 
+\end{DoxyReturn}
+\hypertarget{mot_8c_a5b9673fecebd5aa8e7e69b645517059b}{\index{mot.\-c@{mot.\-c}!compare\-\_\-mot2@{compare\-\_\-mot2}}
+\index{compare\-\_\-mot2@{compare\-\_\-mot2}!mot.c@{mot.\-c}}
+\subsubsection[{compare\-\_\-mot2}]{\setlength{\rightskip}{0pt plus 5cm}int compare\-\_\-mot2 (
+\begin{DoxyParamCaption}
+\item[{{\bf mot\-\_\-t}}]{m1, }
+\item[{{\bf mot\-\_\-t}}]{m2}
+\end{DoxyParamCaption}
+)}}\label{mot_8c_a5b9673fecebd5aa8e7e69b645517059b}
+
+
+Compare deux mots selon leur ordre alphabétique (fonction utilisée dans le projet en utilisant get\-\_\-charnum) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em m1} & Le 1er mot à comparer \\
+\hline
+{\em m2} & Le 2ème mot à comparer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si les mots sont identiques, un nombre négatif si le 1er est inférieur au second, un nombre positif sinon. 
+\end{DoxyReturn}
+\hypertarget{mot_8c_a0ade0cca9aed333397eeff74d0186275}{\index{mot.\-c@{mot.\-c}!create\-\_\-mot@{create\-\_\-mot}}
+\index{create\-\_\-mot@{create\-\_\-mot}!mot.c@{mot.\-c}}
+\subsubsection[{create\-\_\-mot}]{\setlength{\rightskip}{0pt plus 5cm}void create\-\_\-mot (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{word, }
+\item[{int}]{num\-\_\-ligne, }
+\item[{int}]{num\-\_\-col, }
+\item[{{\bf mot\-\_\-t} $\ast$}]{mot}
+\end{DoxyParamCaption}
+)}}\label{mot_8c_a0ade0cca9aed333397eeff74d0186275}
+
+
+Crée un mot à partir de son emplacement dans le texte. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em word} & Le mot que l'on veut créer (chaine de caractères) \\
+\hline
+{\em num\-\_\-ligne} & La ligne où se trouve le mot \\
+\hline
+{\em num\-\_\-col} & La colonne où se trouve le mot \\
+\hline
+{\em mot} & Le mot dans lequel on veut créer le mot \char`\"{}word\char`\"{} \\
+\hline
+\end{DoxyParams}
+\hypertarget{mot_8c_a21f7f5012d4a2615df94b5c897b84fd7}{\index{mot.\-c@{mot.\-c}!insertion\-\_\-dico@{insertion\-\_\-dico}}
+\index{insertion\-\_\-dico@{insertion\-\_\-dico}!mot.c@{mot.\-c}}
+\subsubsection[{insertion\-\_\-dico}]{\setlength{\rightskip}{0pt plus 5cm}void insertion\-\_\-dico (
+\begin{DoxyParamCaption}
+\item[{{\bf mot\-\_\-t} $\ast$$\ast$}]{dico, }
+\item[{{\bf mot\-\_\-t} $\ast$}]{mot}
+\end{DoxyParamCaption}
+)}}\label{mot_8c_a21f7f5012d4a2615df94b5c897b84fd7}
+
+
+Insère un mot dans le dictionnaire dans l'ordre alphabtique. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dico} & Un pointeur sur un dictionnaire (un pointeur de mot\-\_\-t) \\
+\hline
+{\em mot} & Un pointeur sur le mot à insérer dans le dico \\
+\hline
+\end{DoxyParams}
+\hypertarget{mot_8c_a05a897e44a94954a8c0175ead661de96}{\index{mot.\-c@{mot.\-c}!print\-\_\-mot@{print\-\_\-mot}}
+\index{print\-\_\-mot@{print\-\_\-mot}!mot.c@{mot.\-c}}
+\subsubsection[{print\-\_\-mot}]{\setlength{\rightskip}{0pt plus 5cm}void print\-\_\-mot (
+\begin{DoxyParamCaption}
+\item[{{\bf mot\-\_\-t}}]{m}
+\end{DoxyParamCaption}
+)}}\label{mot_8c_a05a897e44a94954a8c0175ead661de96}
+
+
+Mot.\-c. 
+
+Affiche un mot et ses emplacements dans le texte.
+
+\begin{DoxyAuthor}{Auteur}
+Quentin D\-U\-N\-A\-N\-D and Elsa Navarro 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+11/04/2015 
+\end{DoxyDate}

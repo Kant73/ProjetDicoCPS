@@ -12,6 +12,10 @@
 * @date 04/2015
 */
 
+/**
+ * @brief 	Notre type structuré maillon_t qui possède un élément val de type lettres et un pointeur sur un maillon_t
+ * @struct 	maillon maillon.h "maillon_t"
+ */
 typedef struct maillon 
 {
     lettres val;
@@ -20,50 +24,48 @@ typedef struct maillon
 
 
 /**
- * Modifie la k-ieme lettre d'un maillon
- * @param k : indice entier supérieur à 0
- * @param c : caractère à inserer
- * @param m : maillon à modifier
+ * @brief Modifie la k-ieme lettre d'un maillon par le caractère "c"
+ * @param k 	Indice entier supérieur à 0
+ * @param c 	Caractère à inserer à la position "k"
+ * @param m 	Maillon dont on veut modifier la k-ième lettre
  */
 void set_charnum(int k, char c, maillon_t *m);
 
 
 /**
- * Consulte la k-ieme lettre du maillon
- * @param k : indice entier compris entre 0 et 5
- * @param m : maillon à consulter
+ * @brief Retourne la k-ieme lettre du maillon
+ * @param k 	Indice entier compris entre 0 et 5
+ * @param m 	La maillon dont on veut connaitre la k-ème lettre
  */
 char get_charnum(int k, maillon_t m);
 
 
 /**
- * Retourne le nombre de bits d'un entier
- * @param  a L'entier dont on veut connaitre le nombre de bits
- * @return   Le nombre de bits de l'entier "a"
+ * @brief 		Retourne le nombre de bits d'un entier
+ * @param  a 	L'entier dont on veut connaitre le nombre de bits
+ * @return   	Le nombre de bits de l'entier "a"
  */
 int get_nb_bits(int a);
 
 
 /**
- * Retourne le nombre de lettre d'un maillon
- * @param  m maillon
- * @return   le nombre de lettre contenues dans le maillon
+ * @brief 	Retourne le nombre de lettre d'un maillon
+ * @param m Le maillon dont on veut connaitre le nombre de lettre
+ * @return 	Le nombre de lettre contenues dans le maillon
  */
 int get_nb_lettres(maillon_t* m);
 
 /**
- * Convertit une chaine de caractère en liste de maillons
- * @param chaine : chaine à convertir
- * @param m : maillon converti
- * @param der_m : pointeur vers le dernier maillon
+ * @brief Convertit une chaine de caractère en liste de maillons
+ * @param chaine 	La chaine à convertir en maillons
+ * @param m  		Le maillon qui correspond à la chaine convertie
  */
 void string_to_maillon(char* chaine, maillon_t* m);
 
 /**
- * Convertit une liste de maillons en chaine de caractères
- * @param m : maillon à convertir
- * @param taille : taille du mot
- * @return : la chaine de caractères convertie
+ * @brief Convertit une liste de maillons en chaine de caractères
+ * @param m	La liste de maillons à convertir en chaine de caractères
+ * @return 	La liste de maillons convertie en chaine de caractères
  */
 char* maillon_to_string(maillon_t* m);
 
