@@ -10,7 +10,7 @@
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{mot_8c_a05a897e44a94954a8c0175ead661de96}{print\-\_\-mot} (\hyperlink{structmot}{mot\-\_\-t} m)
-\begin{DoxyCompactList}\small\item\em Mot.\-c. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Affiche un mot et ses emplacements dans le texte. \end{DoxyCompactList}\item 
 void \hyperlink{mot_8c_a0ade0cca9aed333397eeff74d0186275}{create\-\_\-mot} (char $\ast$word, int num\-\_\-ligne, int num\-\_\-col, \hyperlink{structmot}{mot\-\_\-t} $\ast$\hyperlink{structmot}{mot})
 \begin{DoxyCompactList}\small\item\em Crée un mot à partir de son emplacement dans le texte. \end{DoxyCompactList}\item 
 int \hyperlink{mot_8c_a687bf4e9b8570c1ba2b9f61a0b064876}{compare\-\_\-mot} (\hyperlink{structmot}{mot\-\_\-t} m1, \hyperlink{structmot}{mot\-\_\-t} m2)
@@ -22,7 +22,11 @@ void \hyperlink{mot_8c_af78657ce73da3ca30cc5c2ec808c4ed8}{affiche\-\_\-dico} (\h
 void \hyperlink{mot_8c_a42b974393b747a0aa3dbc3a40504c775}{ajoute\-\_\-empl} (\hyperlink{structmot}{mot\-\_\-t} $\ast$ptr\-\_\-mot\-\_\-init, \hyperlink{structmot}{mot\-\_\-t} mot\-\_\-ajout)
 \begin{DoxyCompactList}\small\item\em Ajoute l'emplacement contenu dans mot à la suite de la liste d'emplacements de mot\-\_\-cour. \end{DoxyCompactList}\item 
 void \hyperlink{mot_8c_a21f7f5012d4a2615df94b5c897b84fd7}{insertion\-\_\-dico} (\hyperlink{structmot}{mot\-\_\-t} $\ast$$\ast$dico, \hyperlink{structmot}{mot\-\_\-t} $\ast$\hyperlink{structmot}{mot})
-\begin{DoxyCompactList}\small\item\em Insère un mot dans le dictionnaire dans l'ordre alphabtique. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Insère un mot dans le dictionnaire dans l'ordre alphabtique. \end{DoxyCompactList}\item 
+void \hyperlink{mot_8c_a6096e9debed6fed7898bbfaec3d8253b}{libere\-\_\-emplacements} (\hyperlink{structemplacement}{emplacement\-\_\-t} $\ast$empl)
+\begin{DoxyCompactList}\small\item\em Libère l'espace mémoire réservée par un emplacement et ses successeurs. \end{DoxyCompactList}\item 
+void \hyperlink{mot_8c_aa952e27c39e3d54ddf77a3ae7bc1e8be}{libere\-\_\-dico} (\hyperlink{structmot}{mot\-\_\-t} $\ast$dico)
+\begin{DoxyCompactList}\small\item\em Libère l'espace mémoire réservée par un dictionnaire. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Description détaillée}
@@ -30,7 +34,7 @@ void \hyperlink{mot_8c_a21f7f5012d4a2615df94b5c897b84fd7}{insertion\-\_\-dico} (
 Elsa Navarro \& Quentin Dunand 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-04/2015 
+04/2015
 \end{DoxyDate}
 
 
@@ -158,6 +162,38 @@ Insère un mot dans le dictionnaire dans l'ordre alphabtique.
 {\em mot} & Un pointeur sur le mot à insérer dans le dico \\
 \hline
 \end{DoxyParams}
+\hypertarget{mot_8c_aa952e27c39e3d54ddf77a3ae7bc1e8be}{\index{mot.\-c@{mot.\-c}!libere\-\_\-dico@{libere\-\_\-dico}}
+\index{libere\-\_\-dico@{libere\-\_\-dico}!mot.c@{mot.\-c}}
+\subsubsection[{libere\-\_\-dico}]{\setlength{\rightskip}{0pt plus 5cm}void libere\-\_\-dico (
+\begin{DoxyParamCaption}
+\item[{{\bf mot\-\_\-t} $\ast$}]{dico}
+\end{DoxyParamCaption}
+)}}\label{mot_8c_aa952e27c39e3d54ddf77a3ae7bc1e8be}
+
+
+Libère l'espace mémoire réservée par un dictionnaire. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dico} & Le dictionnaire (liste chainée de mot\-\_\-t) dont on veut libérer la mémoire \\
+\hline
+\end{DoxyParams}
+\hypertarget{mot_8c_a6096e9debed6fed7898bbfaec3d8253b}{\index{mot.\-c@{mot.\-c}!libere\-\_\-emplacements@{libere\-\_\-emplacements}}
+\index{libere\-\_\-emplacements@{libere\-\_\-emplacements}!mot.c@{mot.\-c}}
+\subsubsection[{libere\-\_\-emplacements}]{\setlength{\rightskip}{0pt plus 5cm}void libere\-\_\-emplacements (
+\begin{DoxyParamCaption}
+\item[{{\bf emplacement\-\_\-t} $\ast$}]{empl}
+\end{DoxyParamCaption}
+)}}\label{mot_8c_a6096e9debed6fed7898bbfaec3d8253b}
+
+
+Libère l'espace mémoire réservée par un emplacement et ses successeurs. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em empl} & Le pointeur sur la tete d'une chaine d'emplacements qu'on veut libérer en mémoire \\
+\hline
+\end{DoxyParams}
 \hypertarget{mot_8c_a05a897e44a94954a8c0175ead661de96}{\index{mot.\-c@{mot.\-c}!print\-\_\-mot@{print\-\_\-mot}}
 \index{print\-\_\-mot@{print\-\_\-mot}!mot.c@{mot.\-c}}
 \subsubsection[{print\-\_\-mot}]{\setlength{\rightskip}{0pt plus 5cm}void print\-\_\-mot (
@@ -167,13 +203,10 @@ Insère un mot dans le dictionnaire dans l'ordre alphabtique.
 )}}\label{mot_8c_a05a897e44a94954a8c0175ead661de96}
 
 
-Mot.\-c. 
+Affiche un mot et ses emplacements dans le texte. 
 
-Affiche un mot et ses emplacements dans le texte.
 
-\begin{DoxyAuthor}{Auteur}
-Quentin D\-U\-N\-A\-N\-D and Elsa Navarro 
-\end{DoxyAuthor}
-\begin{DoxyDate}{Date}
-11/04/2015 
-\end{DoxyDate}
+\begin{DoxyParams}{Paramètres}
+{\em m} & Le mot à afficher \\
+\hline
+\end{DoxyParams}

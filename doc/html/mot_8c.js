@@ -7,5 +7,7 @@ var mot_8c =
     [ "compare_mot2", "mot_8c.html#a5b9673fecebd5aa8e7e69b645517059b", null ],
     [ "create_mot", "mot_8c.html#a0ade0cca9aed333397eeff74d0186275", null ],
     [ "insertion_dico", "mot_8c.html#a21f7f5012d4a2615df94b5c897b84fd7", null ],
+    [ "libere_dico", "mot_8c.html#aa952e27c39e3d54ddf77a3ae7bc1e8be", null ],
+    [ "libere_emplacements", "mot_8c.html#a6096e9debed6fed7898bbfaec3d8253b", null ],
     [ "print_mot", "mot_8c.html#a05a897e44a94954a8c0175ead661de96", null ]
 ];

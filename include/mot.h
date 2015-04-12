@@ -109,3 +109,15 @@ void ajoute_empl(mot_t* mot_cour, mot_t mot);
 * @param mot 	Un pointeur sur le mot à insérer dans le dico
 */
 void insertion_dico(mot_t** dico, mot_t* mot);
+
+/**
+* @brief		Libère l'espace mémoire réservée par un emplacement et ses successeurs
+* @param empl 	Le pointeur sur la tete d'une chaine d'emplacements qu'on veut libérer en mémoire
+*/
+void libere_emplacements(emplacement_t* empl);
+ 
+/**
+* @brief		Libère l'espace mémoire réservée par un dictionnaire
+* @param dico 	Le dictionnaire (liste chainée de mot_t) dont on veut libérer la mémoire
+*/
+void libere_dico(mot_t* dico);

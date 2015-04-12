@@ -21,7 +21,9 @@ void \hyperlink{maillon_8c_af5ad4d53f9bc68aa4cbfea432ad0cea5}{string\-\_\-to\-\_
 char $\ast$ \hyperlink{maillon_8c_a8ebc8bd0a60877a7b86643d110bd6e9c}{maillon\-\_\-to\-\_\-string} (\hyperlink{structmaillon}{maillon\-\_\-t} $\ast$m)
 \begin{DoxyCompactList}\small\item\em Convertit une liste de maillons en chaine de caractères. \end{DoxyCompactList}\item 
 char $\ast$ \hyperlink{maillon_8c_a22e98a8cf2e2c79d738830b387cace28}{itoa} (int value, char $\ast$result, int base)
-\begin{DoxyCompactList}\small\item\em C version 0.\-4 char$\ast$ style \char`\"{}itoa\char`\"{}\-: Written by Lukás Chmela Released under G\-P\-Lv3. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em C version 0.\-4 char$\ast$ style \char`\"{}itoa\char`\"{}\-: Written by Lukás Chmela Released under G\-P\-Lv3. \end{DoxyCompactList}\item 
+void \hyperlink{maillon_8c_aecc9be07eca485204e570f8d9f24b877}{libere\-\_\-maillons} (\hyperlink{structmaillon}{maillon\-\_\-t} $\ast$m)
+\begin{DoxyCompactList}\small\item\em Libère l'espace mémoire réservée par un maillon et ses successeurs. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Description détaillée}
@@ -116,6 +118,22 @@ Utilisation d'une fonction C existante mais qui n'est plus présente avec G\-C\-
 \begin{DoxyReturn}{Renvoie}
 L'entier \char`\"{}value\char`\"{} dans la base \char`\"{}base\char`\"{} sous la forme d'une chaîne de caractère 
 \end{DoxyReturn}
+\hypertarget{maillon_8c_aecc9be07eca485204e570f8d9f24b877}{\index{maillon.\-c@{maillon.\-c}!libere\-\_\-maillons@{libere\-\_\-maillons}}
+\index{libere\-\_\-maillons@{libere\-\_\-maillons}!maillon.c@{maillon.\-c}}
+\subsubsection[{libere\-\_\-maillons}]{\setlength{\rightskip}{0pt plus 5cm}void libere\-\_\-maillons (
+\begin{DoxyParamCaption}
+\item[{{\bf maillon\-\_\-t} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}}\label{maillon_8c_aecc9be07eca485204e570f8d9f24b877}
+
+
+Libère l'espace mémoire réservée par un maillon et ses successeurs. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em m} & Le pointeur sur la tete d'une chaine de maillons qu'on veut libérer \\
+\hline
+\end{DoxyParams}
 \hypertarget{maillon_8c_a8ebc8bd0a60877a7b86643d110bd6e9c}{\index{maillon.\-c@{maillon.\-c}!maillon\-\_\-to\-\_\-string@{maillon\-\_\-to\-\_\-string}}
 \index{maillon\-\_\-to\-\_\-string@{maillon\-\_\-to\-\_\-string}!maillon.c@{maillon.\-c}}
 \subsubsection[{maillon\-\_\-to\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ maillon\-\_\-to\-\_\-string (

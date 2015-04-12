@@ -70,9 +70,10 @@ int main(int argc, char const *argv[])
 	    	//printf("Mot n°%d: %s \n",i, mot);
 	    }
 	    affiche_dico(dico);
-	    printf("%s******************************************\n", KRED);
+	    printf("%s*******************************************\n", KRED);
 	    printf("Fin du Dictionnaire, nombre de mots : %d\n", i);
-	    printf("******************************************%s\n", KNRM);
+	    printf("*******************************************%s\n", KNRM);
+	    libere_dico(dico); //On libère l'espace mémoire qui a été alloué pour le dico
     }
 
 	return 0;

@@ -119,7 +119,7 @@ $(document).ready(function(){initNavTree('mot_8c.html','');});
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:a05a897e44a94954a8c0175ead661de96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mot_8c.html#a05a897e44a94954a8c0175ead661de96">print_mot</a> (<a class="el" href="structmot.html">mot_t</a> m)</td></tr>
-<tr class="memdesc:a05a897e44a94954a8c0175ead661de96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mot.c.  <a href="#a05a897e44a94954a8c0175ead661de96">Plus de détails...</a><br/></td></tr>
+<tr class="memdesc:a05a897e44a94954a8c0175ead661de96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche un mot et ses emplacements dans le texte.  <a href="#a05a897e44a94954a8c0175ead661de96">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a05a897e44a94954a8c0175ead661de96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ade0cca9aed333397eeff74d0186275"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mot_8c.html#a0ade0cca9aed333397eeff74d0186275">create_mot</a> (char *word, int num_ligne, int num_col, <a class="el" href="structmot.html">mot_t</a> *<a class="el" href="structmot.html">mot</a>)</td></tr>
 <tr class="memdesc:a0ade0cca9aed333397eeff74d0186275"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée un mot à partir de son emplacement dans le texte.  <a href="#a0ade0cca9aed333397eeff74d0186275">Plus de détails...</a><br/></td></tr>
@@ -139,10 +139,16 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a21f7f5012d4a2615df94b5c897b84fd7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mot_8c.html#a21f7f5012d4a2615df94b5c897b84fd7">insertion_dico</a> (<a class="el" href="structmot.html">mot_t</a> **dico, <a class="el" href="structmot.html">mot_t</a> *<a class="el" href="structmot.html">mot</a>)</td></tr>
 <tr class="memdesc:a21f7f5012d4a2615df94b5c897b84fd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insère un mot dans le dictionnaire dans l'ordre alphabtique.  <a href="#a21f7f5012d4a2615df94b5c897b84fd7">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a21f7f5012d4a2615df94b5c897b84fd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6096e9debed6fed7898bbfaec3d8253b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mot_8c.html#a6096e9debed6fed7898bbfaec3d8253b">libere_emplacements</a> (<a class="el" href="structemplacement.html">emplacement_t</a> *empl)</td></tr>
+<tr class="memdesc:a6096e9debed6fed7898bbfaec3d8253b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère l'espace mémoire réservée par un emplacement et ses successeurs.  <a href="#a6096e9debed6fed7898bbfaec3d8253b">Plus de détails...</a><br/></td></tr>
+<tr class="separator:a6096e9debed6fed7898bbfaec3d8253b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa952e27c39e3d54ddf77a3ae7bc1e8be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mot_8c.html#aa952e27c39e3d54ddf77a3ae7bc1e8be">libere_dico</a> (<a class="el" href="structmot.html">mot_t</a> *dico)</td></tr>
+<tr class="memdesc:aa952e27c39e3d54ddf77a3ae7bc1e8be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère l'espace mémoire réservée par un dictionnaire.  <a href="#aa952e27c39e3d54ddf77a3ae7bc1e8be">Plus de détails...</a><br/></td></tr>
+<tr class="separator:aa952e27c39e3d54ddf77a3ae7bc1e8be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><dl class="section author"><dt>Auteur</dt><dd>Elsa Navarro &amp; Quentin Dunand </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>04/2015 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>04/2015</dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
 <a class="anchor" id="af78657ce73da3ca30cc5c2ec808c4ed8"></a>
 <div class="memitem">
@@ -359,6 +365,54 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aa952e27c39e3d54ddf77a3ae7bc1e8be"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void libere_dico </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmot.html">mot_t</a> *&#160;</td>
+          <td class="paramname"><em>dico</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère l'espace mémoire réservée par un dictionnaire. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dico</td><td>Le dictionnaire (liste chainée de mot_t) dont on veut libérer la mémoire </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a6096e9debed6fed7898bbfaec3d8253b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void libere_emplacements </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structemplacement.html">emplacement_t</a> *&#160;</td>
+          <td class="paramname"><em>empl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère l'espace mémoire réservée par un emplacement et ses successeurs. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">empl</td><td>Le pointeur sur la tete d'une chaine d'emplacements qu'on veut libérer en mémoire </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a05a897e44a94954a8c0175ead661de96"></a>
 <div class="memitem">
 <div class="memproto">
@@ -373,10 +427,13 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Mot.c. </p>
-<p>Affiche un mot et ses emplacements dans le texte.</p>
-<dl class="section author"><dt>Auteur</dt><dd>Quentin DUNAND and Elsa Navarro </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>11/04/2015 </dd></dl>
+<p>Affiche un mot et ses emplacements dans le texte. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>Le mot à afficher </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -386,7 +443,7 @@ Fonctions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="mot_8c.html">mot.c</a></li>
-    <li class="footer">Généré le Dimanche 12 Avril 2015 00:35:09 pour Projet CPS Dictionnaire par
+    <li class="footer">Généré le Dimanche 12 Avril 2015 11:46:09 pour Projet CPS Dictionnaire par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

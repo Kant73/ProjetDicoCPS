@@ -85,5 +85,11 @@ char* maillon_to_string(maillon_t* m);
 */
 char* itoa(int value, char* result, int base);
 
+/**
+* @brief	Libère l'espace mémoire réservée par un maillon et ses successeurs
+* @param m 	Le pointeur sur la tete d'une chaine de maillons qu'on veut libérer
+*/
+void libere_maillons(maillon_t* m);
+
 
 

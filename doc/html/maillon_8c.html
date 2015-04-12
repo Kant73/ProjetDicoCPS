@@ -137,6 +137,9 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a22e98a8cf2e2c79d738830b387cace28"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maillon_8c.html#a22e98a8cf2e2c79d738830b387cace28">itoa</a> (int value, char *result, int base)</td></tr>
 <tr class="memdesc:a22e98a8cf2e2c79d738830b387cace28"><td class="mdescLeft">&#160;</td><td class="mdescRight">C version 0.4 char* style "itoa": Written by Lukás Chmela Released under GPLv3.  <a href="#a22e98a8cf2e2c79d738830b387cace28">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a22e98a8cf2e2c79d738830b387cace28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecc9be07eca485204e570f8d9f24b877"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maillon_8c.html#aecc9be07eca485204e570f8d9f24b877">libere_maillons</a> (<a class="el" href="structmaillon.html">maillon_t</a> *m)</td></tr>
+<tr class="memdesc:aecc9be07eca485204e570f8d9f24b877"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère l'espace mémoire réservée par un maillon et ses successeurs.  <a href="#aecc9be07eca485204e570f8d9f24b877">Plus de détails...</a><br/></td></tr>
+<tr class="separator:aecc9be07eca485204e570f8d9f24b877"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><dl class="section author"><dt>Auteur</dt><dd>Elsa Navarro &amp; Quentin Dunand </dd></dl>
@@ -271,6 +274,30 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aecc9be07eca485204e570f8d9f24b877"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void libere_maillons </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmaillon.html">maillon_t</a> *&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère l'espace mémoire réservée par un maillon et ses successeurs. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>Le pointeur sur la tete d'une chaine de maillons qu'on veut libérer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a8ebc8bd0a60877a7b86643d110bd6e9c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -379,7 +406,7 @@ Fonctions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="maillon_8c.html">maillon.c</a></li>
-    <li class="footer">Généré le Dimanche 12 Avril 2015 00:35:09 pour Projet CPS Dictionnaire par
+    <li class="footer">Généré le Dimanche 12 Avril 2015 11:46:09 pour Projet CPS Dictionnaire par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

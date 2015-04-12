@@ -157,3 +157,11 @@ char* itoa(int value, char* result, int base) {
 		}
 		return result;
 	}
+
+
+void libere_maillons(maillon_t* m){
+    if(m!=NULL){
+        libere_maillons((*m).suiv);
+        free(m);
+    }
+}

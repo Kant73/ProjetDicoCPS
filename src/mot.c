@@ -9,9 +9,7 @@
 #endif
 
 /**
- * Mot.c
- * @author Quentin DUNAND and Elsa Navarro
- * @date 11/04/2015
+ * @file 	mot.c
  */
 
 
@@ -207,4 +205,25 @@ void insertion_dico(mot_t** dico, mot_t* mot){
 	(*mot_ajout).suiv=mot_cour;		//On chaine le mot en tête du dictionnaire (il est vide alors ces pointeurs sont nuls)
 	mot_cour=mot_ajout;				//On raccroche la tete du dictionnaire au mot
 	*dico=mot_cour;
+}
+
+void libere_emplacements(emplacement_t* empl)
+{
+    if(empl!=NULL){
+        libere_emplacements((*empl).suiv);
+        free(empl);
+    }
+}
+
+
+void libere_dico(mot_t* dico)
+{
+    if(dico!=NULL){
+        libere_dico((*dico).suiv);					//On libère le mot suivant
+        libere_maillons((*dico).tete_mot);			//On libère les maillons du mot
+        libere_emplacements((*dico).tete_liste);	//On libère les emplacements du mot
+        (*dico).queue_mot=NULL;						//On remet à zéro les pointeurs de queue afin qu'il
+        (*dico).queue_liste=NULL;					//ne pointe pas sur une zone qu'on à déjà libérée
+        free(dico);									//Finalement on libère le dico
+    }
 }

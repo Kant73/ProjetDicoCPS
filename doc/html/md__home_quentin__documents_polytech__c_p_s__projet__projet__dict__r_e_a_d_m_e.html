@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Projet CPS Dictionnaire: ProjetDicoCPS</title>
+<title>Projet CPS Dictionnaire: Quentin DUNAND et Elsa NAVARRO</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -98,25 +98,38 @@ $(document).ready(function(){initNavTree('md__home_quentin__documents_polytech__
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ProjetDicoCPS </div>  </div>
+<div class="title">Quentin DUNAND et Elsa NAVARRO </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h2>TODO :</h2>
+<div class="textblock"><h1>Projet CPS Dictionnaire</h1>
+<h5>Réalisation d'un dictionnaire à partir des mots composant un texte quelconque, écrit en minuscules, sans accent et sans caractères spéciaux.</h5>
+<h2>Compilation et utilisation</h2>
+<h3>Compilation</h3>
+<p>Pour compiler le programme, il suffit de se rendre dans le dossier src, d'ouvrir un terminal et d'executer la commande make qui va généré un executable nommé "main".</p>
+<h3>Utilisation</h3>
+<p>Pout lancer le programme, utilisez le de la façon suivante : ``` ./main [nom_de_fichier] ``` Par exemple : ``` ./main ../Examples/moyen_dico.txt ```</p>
+<p>[nom_de_fichier] correspond au nom du fichier dont l'utilisateur souhaite connaitre le dictionnaire.</p>
+<p>Si aucun nom de fichier n'est saisi, l'utilisateur devra alors lui même taper le texte dont il veut connaitre le dictionnaire, c'est le mode "saisie de texte manuelle".</p>
+<p>Exemple : ``` quentin-K72Jr:~/Documents/polytech/CPS/Projet/Projet_Dict/src$ ./main salut comment ca va ? tres bien et vous ? ca va merci. </p>
+<hr/>
+<p> Dictionnaire : </p>
+<hr/>
+<p> bien (1, 28) ca (1, 15) (1, 43) comment (1, 7) et (1, 33) merci (1, 49) salut (1, 1) tres (1, 23) va (1, 18) (1, 46) vous (1, 36) </p>
+<hr/>
+<p> Fin du Dictionnaire, nombre de mots : 11 </p>
+<hr/>
+<p> ```</p>
+<h4>Remarque :</h4>
 <ol type="1">
-<li>Vérifier paramètres entrée/sortie des fonctions déjà crées : int ou uint8_t ou uint32_t ou char etc...</li>
-<li>Commenter tout ce qui ne l'est pas encore</li>
-<li>Reste du projet :<ul>
-<li>Faire fonction compare_mot correctement</li>
-<li>Tester plus en détail insertion dictionnaire et afficher_dico </li>
-</ul>
-</li>
+<li>Le makefile est actuellement fait pour les systèmes Linux 64 bits, il est nécéssaire de modifier le flag FLAGSSO de celui-ci afin de le rendre compatible avec votre système.</li>
+<li>Si vous optez pour l'utilisation de l'outil en mode "saisie de texte manuelle", il est nécéssaire de terminer votre saisie par un appui sur la touche Entrée de votre clavier puis par la combinaison Ctrl + D pour les systèmes Linux (un équivalent de Ctrl + D doit exister pour les systèmes Mac OS) </li>
 </ol>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Généré le Dimanche 12 Avril 2015 00:35:09 pour Projet CPS Dictionnaire par
+    <li class="footer">Généré le Dimanche 12 Avril 2015 11:46:09 pour Projet CPS Dictionnaire par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
