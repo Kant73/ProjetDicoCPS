@@ -5,10 +5,10 @@
 
 ##Compilation et utilisation
 ###Compilation
-Pour compiler le programme, il suffit de se rendre dans le dossier src, d'ouvrir un terminal et d'executer la commande make qui va généré un executable nommé "main".
+Pour compiler le programme, il suffit de se rendre dans le dossier src, d'ouvrir un terminal et d’exécuter la commande make qui va généré un exécutable nommé "main".
 
 ###Utilisation
-Pout lancer le programme, utilisez le de la façon suivante :
+Pour lancer le programme, utilisez le de la façon suivante :
 ```
 ./main [nom_de_fichier]
 ```
@@ -17,9 +17,9 @@ Par exemple :
 ./main ../Examples/moyen_dico.txt
 ```
 
-[nom_de_fichier] correspond au nom du fichier dont l'utilisateur souhaite connaitre le dictionnaire.
+[nom_de_fichier] correspond au nom du fichier dont l'utilisateur souhaite connaître le dictionnaire.
 
-Si aucun nom de fichier n'est saisi, l'utilisateur devra alors lui même taper le texte dont il veut connaitre le dictionnaire, c'est le mode  "saisie de texte manuelle".
+Si aucun nom de fichier n'est saisi, l'utilisateur devra alors lui même taper le texte dont il veut connaître le dictionnaire, c'est le mode  "saisie de texte manuelle".
 
 Exemple :
 ```
@@ -43,5 +43,5 @@ Fin du Dictionnaire, nombre de mots : 11
 ```
 
 ####Remarque :
-1.	Le makefile est actuellement fait pour les systèmes Linux 64 bits, il est nécéssaire de modifier le flag FLAGSSO de celui-ci afin de le rendre compatible avec votre système.
-2.	Si vous optez pour l'utilisation de l'outil en mode "saisie de texte manuelle", il est nécéssaire de terminer votre saisie par un appui sur la touche Entrée de votre clavier puis par la combinaison Ctrl + D pour les systèmes Linux (un équivalent de Ctrl + D doit exister pour les systèmes Mac OS)
+1.	Le makefile est actuellement fait pour les systèmes Linux 64 bits, il est nécessaire de modifier le flag FLAGSSO de celui-ci afin de le rendre compatible avec votre système.
+2.	Si vous optez pour l'utilisation de l'outil en mode "saisie de texte manuelle", il est nécessaire de terminer votre saisie par un appui sur la touche Entrée de votre clavier puis par la combinaison Ctrl + D pour les systèmes Linux (un équivalent de Ctrl + D doit exister pour les systèmes Mac OS)
