@@ -60,7 +60,7 @@ int main(int argc, char const *argv[])
     		fichier = stdin;
     	}
 
-    	while (!feof(fichier))	// POur l'instant, le main ne fait que afficher les mots du texte qu'on lui a donné
+    	while (!feof(fichier))	// Pour l'instant, le main ne fait que afficher les mots du texte qu'on lui a donné
 	    {
 	    	mot_t m;
 	    	mot = next_word(fichier, &nbligne, &nbcolonne);
@@ -73,7 +73,7 @@ int main(int argc, char const *argv[])
 	    printf("%s*******************************************\n", KRED);
 	    printf("Fin du Dictionnaire, nombre de mots : %d\n", i);
 	    printf("*******************************************%s\n", KNRM);
-	    libere_dico(dico); //On libère l'espace mémoire qui a été alloué pour le dico
+	    //libere_dico(dico); //On libère l'espace mémoire qui a été alloué pour le dico
     }
 
 	return 0;

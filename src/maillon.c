@@ -58,7 +58,7 @@ void set_charnum(int k, char c, maillon_t *m){
 	int mask_one = 0b111111111111111111111111111111;
 	int mask_char = char_to_num(c); //représentation du caractère c en décimal.
 
-	//On prépare le masque afin d'obtenir des zeros sur les bits qu'on veut modifier et des 1 ailleurs
+	//On prépare le masque afin d'obtenir des zéros sur les bits qu'on veut modifier et des 1 ailleurs
 	mask_one = mask_one << 5;
 	int i = 0;
 	for(i=0; i<(5*(5-k)); i++)
@@ -67,10 +67,10 @@ void set_charnum(int k, char c, maillon_t *m){
 		mask_one = mask_one | 1; 
 	}
 
-	//On modifie le maillion qu'on veut changer afin de mettre les bits qu'on veut modifier à zero
+	//On modifie le maillon qu'on veut changer afin de mettre les bits qu'on veut modifier à zéro
 	(*m).val = (*m).val & mask_one;
 
-	//On fait un ou bit à bit sur les bits qu'on vient de mettre à zero afin de changer la valeur du k-ième élement
+	//On fait un ou bit à bit sur les bits qu'on vient de mettre à zéro afin de changer la valeur du k-ième élément
 	(*m).val = (*m).val | (mask_char << (5*(5-k)));
 }
 
@@ -106,7 +106,7 @@ char* maillon_to_string(maillon_t* m)
 	//Définition des variables locales et initialisation
 	char* chaine=NULL;
 	int i=0;
-	int saut=0;				//variable grâce à laquelle on connait le caractère effectif
+	int saut=0;				//variable grâce à laquelle on connaît le caractère effectif
 	maillon_t* m_temp=m;
 
 	//On calcule la taille du mot que l'on veut récupérer
@@ -116,12 +116,12 @@ char* maillon_to_string(maillon_t* m)
 	#endif
 	chaine=(char*)malloc(taille*sizeof(char)+1);
 
-	//On parcours le maillon en remplissant la chaine
+	//On parcours le maillon en remplissant la chaîne
 	while(saut+i<taille){
 		*(chaine+i+saut)=get_charnum(i,*m_temp); 
 
 		if(i==5){
-			i=0;							//reinitialisation de i à 0
+			i=0;							//réinitialisation de i à 0
 			saut=saut+6;					//on doit sauter 6 lettres
 			m_temp= (*m_temp).suiv;			//on passe au maillon suivant
 		}else

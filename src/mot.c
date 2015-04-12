@@ -30,7 +30,7 @@ void print_mot(mot_t m)
 void create_mot(char* word, int num_ligne, int num_col, mot_t* mot)
 {
 	maillon_t* ma;
-	(*mot).tete_mot = (maillon_t*) malloc(sizeof(maillon_t));	//malloc pour allouer la mémoire nécéssaire
+	(*mot).tete_mot = (maillon_t*) malloc(sizeof(maillon_t));	//malloc pour allouer la mémoire nécessaire
 	(*mot).queue_mot = (maillon_t*) malloc(sizeof(maillon_t));	//pour les pointeurs sur maillons
 	string_to_maillon(word, (*mot).tete_mot);
 
@@ -59,7 +59,7 @@ int compare_mot(mot_t m1, mot_t m2){
 	char* c1;
 	char* c2;
 
-	//les mots ne sont pas vides, on récupère les chaines de caractère
+	//les mots ne sont pas vides, on récupère les chaînes de caractère
 	c1=maillon_to_string(m1.tete_mot);
 	c2=maillon_to_string(m2.tete_mot);
 
@@ -143,7 +143,7 @@ void ajoute_empl(mot_t* ptr_mot_init, mot_t mot_ajout){
 	(*nouv_empl).ligne=(*mot_ajout.tete_liste).ligne;			 //On lui assigne les valeurs de l'emplacement de mot_ajout
 	(*nouv_empl).colonne=(*mot_ajout.tete_liste).colonne;
 	(*nouv_empl).suiv=NULL;
-	(*((*ptr_mot_init).queue_liste)).suiv=nouv_empl; 		//On chaine le dernier emplacement du mot initial à la nouvelle valeur
+	(*((*ptr_mot_init).queue_liste)).suiv=nouv_empl; 		//On chaîne le dernier emplacement du mot initial à la nouvelle valeur
 	(*ptr_mot_init).queue_liste=nouv_empl;					//Et on modifie la queue de liste du mot initial
 		}
 
@@ -173,15 +173,15 @@ void insertion_dico(mot_t** dico, mot_t* mot){
 
 		if(cmp==0){						//mot et mot_cour sont identiques
 			ajoute_empl(mot_cour, *mot_ajout);	//On ajoute l'emplacement de mot dans mot_cour
-			if(mot_prec!=NULL){			//Si le mot présédent existe
+			if(mot_prec!=NULL){			//Si le mot précédent existe
 				(*mot_prec).suiv=mot_cour;		//mot_prec.suiv pointe sur le nouveau mot
 			}							//Sinon on est en tête de dictionnaire, mot_cour==*dico on ne fait rien
 			return;							//Le mot a été placé, on quitte l'insertion
 		}
 		else{
 			if(cmp<0){			//mot est plus petit que mot_cour, on le place juste avant:
-				(*mot_ajout).suiv=mot_cour;		//On chaine le mot avant le mot courant
-				if(mot_prec!=NULL){			//Si le mot présédent existe
+				(*mot_ajout).suiv=mot_cour;		//On chaîne le mot avant le mot courant
+				if(mot_prec!=NULL){			//Si le mot précédent existe
 					(*mot_prec).suiv=mot_ajout;		//On le raccroche au mot
 				}else{						//Sinon on est en tête de dictionnaire
 					*dico=mot_ajout;					//On raccroche celui ci au mot
@@ -193,7 +193,7 @@ void insertion_dico(mot_t** dico, mot_t* mot){
 					mot_prec=mot_cour;			//le mot courant devient le mot précédent
 					mot_cour=(*mot_cour).suiv;	//le mot suivant devient le mot courant
 				}else{			//dans ce cas on place le mot à la fin du dico
-					(*mot_ajout).suiv=NULL;		//On chaine le mot comme étant la fin du dico
+					(*mot_ajout).suiv=NULL;		//On chaîne le mot comme étant la fin du dico
 					(*mot_cour).suiv=mot_ajout;	//On raccroche le mot courant au mot
 					return;					//On a placé le mot, on quitte l'insertion
 				}
@@ -201,9 +201,9 @@ void insertion_dico(mot_t** dico, mot_t* mot){
 		}
 	}
 	//Ici le dico est vide :
-	//On insère le mot en tete de dico :
-	(*mot_ajout).suiv=mot_cour;		//On chaine le mot en tête du dictionnaire (il est vide alors ces pointeurs sont nuls)
-	mot_cour=mot_ajout;				//On raccroche la tete du dictionnaire au mot
+	//On insère le mot en tête de dico :
+	(*mot_ajout).suiv=mot_cour;		//On chaîne le mot en tête du dictionnaire (il est vide alors ces pointeurs sont nuls)
+	mot_cour=mot_ajout;				//On raccroche la tête du dictionnaire au mot
 	*dico=mot_cour;
 }
 

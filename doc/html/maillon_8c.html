@@ -129,10 +129,10 @@ Fonctions</h2></td></tr>
 <tr class="memdesc:a0ece2664d78e943bd9d8b2673104f677"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie la k-ieme lettre d'un maillon par le caractère "c".  <a href="#a0ece2664d78e943bd9d8b2673104f677">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a0ece2664d78e943bd9d8b2673104f677"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5ad4d53f9bc68aa4cbfea432ad0cea5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maillon_8c.html#af5ad4d53f9bc68aa4cbfea432ad0cea5">string_to_maillon</a> (char *chaine, <a class="el" href="structmaillon.html">maillon_t</a> *m)</td></tr>
-<tr class="memdesc:af5ad4d53f9bc68aa4cbfea432ad0cea5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convertit une chaine de caractère en liste de maillons.  <a href="#af5ad4d53f9bc68aa4cbfea432ad0cea5">Plus de détails...</a><br/></td></tr>
+<tr class="memdesc:af5ad4d53f9bc68aa4cbfea432ad0cea5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convertit une chaîne de caractère en liste de maillons.  <a href="#af5ad4d53f9bc68aa4cbfea432ad0cea5">Plus de détails...</a><br/></td></tr>
 <tr class="separator:af5ad4d53f9bc68aa4cbfea432ad0cea5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ebc8bd0a60877a7b86643d110bd6e9c"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maillon_8c.html#a8ebc8bd0a60877a7b86643d110bd6e9c">maillon_to_string</a> (<a class="el" href="structmaillon.html">maillon_t</a> *m)</td></tr>
-<tr class="memdesc:a8ebc8bd0a60877a7b86643d110bd6e9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convertit une liste de maillons en chaine de caractères.  <a href="#a8ebc8bd0a60877a7b86643d110bd6e9c">Plus de détails...</a><br/></td></tr>
+<tr class="memdesc:a8ebc8bd0a60877a7b86643d110bd6e9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convertit une liste de maillons en chaîne de caractères.  <a href="#a8ebc8bd0a60877a7b86643d110bd6e9c">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a8ebc8bd0a60877a7b86643d110bd6e9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22e98a8cf2e2c79d738830b387cace28"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maillon_8c.html#a22e98a8cf2e2c79d738830b387cace28">itoa</a> (int value, char *result, int base)</td></tr>
 <tr class="memdesc:a22e98a8cf2e2c79d738830b387cace28"><td class="mdescLeft">&#160;</td><td class="mdescRight">C version 0.4 char* style "itoa": Written by Lukás Chmela Released under GPLv3.  <a href="#a22e98a8cf2e2c79d738830b387cace28">Plus de détails...</a><br/></td></tr>
@@ -173,7 +173,7 @@ Fonctions</h2></td></tr>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">k</td><td>Indice entier compris entre 0 et 5 </td></tr>
-    <tr><td class="paramname">m</td><td>La maillon dont on veut connaitre la k-ème lettre </td></tr>
+    <tr><td class="paramname">m</td><td>La maillon dont on veut connaître la k-ème lettre </td></tr>
   </table>
   </dd>
 </dl>
@@ -197,7 +197,7 @@ Fonctions</h2></td></tr>
 <p>Retourne le nombre de bits d'un entier. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td>L'entier dont on veut connaitre le nombre de bits </td></tr>
+    <tr><td class="paramname">a</td><td>L'entier dont on veut connaître le nombre de bits </td></tr>
   </table>
   </dd>
 </dl>
@@ -222,7 +222,7 @@ Fonctions</h2></td></tr>
 <p>Retourne le nombre de lettre d'un maillon. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">m</td><td>Le maillon dont on veut connaitre le nombre de lettre </td></tr>
+    <tr><td class="paramname">m</td><td>Le maillon dont on veut connaître le nombre de lettre </td></tr>
   </table>
   </dd>
 </dl>
@@ -261,11 +261,11 @@ Fonctions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>C version 0.4 char* style "itoa": Written by Lukás Chmela Released under GPLv3. </p>
-<p>Utilisation d'une fonction C existante mais qui n'est plus présente avec GCC, peut être obselète... Permet de convertir un int "value" en une string "result" qui est la représentation du "value" en base "base" Non utilisée dans le projet mais utilisé surant la phase de developpement pour debugger certaine fonctions </p>
+<p>Utilisation d'une fonction C existante mais qui n'est plus présente avec GCC, peut être obsolète... Permet de convertir un int "value" en une string "result" qui est la représentation du "value" en base "base" Non utilisée dans le projet mais utilisé durant la phase de développement pour debugger certaine fonctions </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>L'entier dont on veut la representation dans la base "base" </td></tr>
-    <tr><td class="paramname">result</td><td>La chaine résulat qui va contenir la représentation de "value" dans la base "base" </td></tr>
+    <tr><td class="paramname">value</td><td>L'entier dont on veut la représentation dans la base "base" </td></tr>
+    <tr><td class="paramname">result</td><td>La chaîne résultat qui va contenir la représentation de "value" dans la base "base" </td></tr>
     <tr><td class="paramname">base</td><td>La base dans laquelle on veut obtenir la représentation de "value". "base" doit être compris entre 2 et 36. </td></tr>
   </table>
   </dd>
@@ -291,7 +291,7 @@ Fonctions</h2></td></tr>
 <p>Libère l'espace mémoire réservée par un maillon et ses successeurs. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">m</td><td>Le pointeur sur la tete d'une chaine de maillons qu'on veut libérer </td></tr>
+    <tr><td class="paramname">m</td><td>Le pointeur sur la tête d'une chaîne de maillons qu'on veut libérer </td></tr>
   </table>
   </dd>
 </dl>
@@ -312,14 +312,14 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Convertit une liste de maillons en chaine de caractères. </p>
+<p>Convertit une liste de maillons en chaîne de caractères. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">m</td><td>La liste de maillons à convertir en chaine de caractères </td></tr>
+    <tr><td class="paramname">m</td><td>La liste de maillons à convertir en chaîne de caractères </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>La liste de maillons convertie en chaine de caractères </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>La liste de maillons convertie en chaîne de caractères </dd></dl>
 
 </div>
 </div>
@@ -357,7 +357,7 @@ Fonctions</h2></td></tr>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">k</td><td>Indice entier supérieur à 0 </td></tr>
-    <tr><td class="paramname">c</td><td>Caractère à inserer à la position "k" </td></tr>
+    <tr><td class="paramname">c</td><td>Caractère à insérer à la position "k" </td></tr>
     <tr><td class="paramname">m</td><td>Maillon dont on veut modifier la k-ième lettre </td></tr>
   </table>
   </dd>
@@ -389,11 +389,11 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Convertit une chaine de caractère en liste de maillons. </p>
+<p>Convertit une chaîne de caractère en liste de maillons. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">chaine</td><td>La chaine à convertir en maillons </td></tr>
-    <tr><td class="paramname">m</td><td>Le maillon qui correspond à la chaine convertie </td></tr>
+    <tr><td class="paramname">chaine</td><td>La chaîne à convertir en maillons </td></tr>
+    <tr><td class="paramname">m</td><td>Le maillon qui correspond à la chaîne convertie </td></tr>
   </table>
   </dd>
 </dl>
@@ -406,7 +406,7 @@ Fonctions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="maillon_8c.html">maillon.c</a></li>
-    <li class="footer">Généré le Dimanche 12 Avril 2015 11:46:09 pour Projet CPS Dictionnaire par
+    <li class="footer">Généré le Dimanche 12 Avril 2015 15:10:13 pour Projet CPS Dictionnaire par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

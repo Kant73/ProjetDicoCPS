@@ -17,9 +17,9 @@ char \hyperlink{maillon_8c_ab9d7219ae7110cb0f19b3bdd697dcbf2}{get\-\_\-charnum} 
 void \hyperlink{maillon_8c_a0ece2664d78e943bd9d8b2673104f677}{set\-\_\-charnum} (int k, char c, \hyperlink{structmaillon}{maillon\-\_\-t} $\ast$m)
 \begin{DoxyCompactList}\small\item\em Modifie la k-\/ieme lettre d'un maillon par le caractère \char`\"{}c\char`\"{}. \end{DoxyCompactList}\item 
 void \hyperlink{maillon_8c_af5ad4d53f9bc68aa4cbfea432ad0cea5}{string\-\_\-to\-\_\-maillon} (char $\ast$chaine, \hyperlink{structmaillon}{maillon\-\_\-t} $\ast$m)
-\begin{DoxyCompactList}\small\item\em Convertit une chaine de caractère en liste de maillons. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Convertit une chaîne de caractère en liste de maillons. \end{DoxyCompactList}\item 
 char $\ast$ \hyperlink{maillon_8c_a8ebc8bd0a60877a7b86643d110bd6e9c}{maillon\-\_\-to\-\_\-string} (\hyperlink{structmaillon}{maillon\-\_\-t} $\ast$m)
-\begin{DoxyCompactList}\small\item\em Convertit une liste de maillons en chaine de caractères. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Convertit une liste de maillons en chaîne de caractères. \end{DoxyCompactList}\item 
 char $\ast$ \hyperlink{maillon_8c_a22e98a8cf2e2c79d738830b387cace28}{itoa} (int value, char $\ast$result, int base)
 \begin{DoxyCompactList}\small\item\em C version 0.\-4 char$\ast$ style \char`\"{}itoa\char`\"{}\-: Written by Lukás Chmela Released under G\-P\-Lv3. \end{DoxyCompactList}\item 
 void \hyperlink{maillon_8c_aecc9be07eca485204e570f8d9f24b877}{libere\-\_\-maillons} (\hyperlink{structmaillon}{maillon\-\_\-t} $\ast$m)
@@ -52,7 +52,7 @@ Retourne la k-\/ieme lettre du maillon.
 \begin{DoxyParams}{Paramètres}
 {\em k} & Indice entier compris entre 0 et 5 \\
 \hline
-{\em m} & La maillon dont on veut connaitre la k-\/ème lettre \\
+{\em m} & La maillon dont on veut connaître la k-\/ème lettre \\
 \hline
 \end{DoxyParams}
 \hypertarget{maillon_8c_af8771c21eea664aae24ac534c1bcefe6}{\index{maillon.\-c@{maillon.\-c}!get\-\_\-nb\-\_\-bits@{get\-\_\-nb\-\_\-bits}}
@@ -68,7 +68,7 @@ Retourne le nombre de bits d'un entier.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em a} & L'entier dont on veut connaitre le nombre de bits \\
+{\em a} & L'entier dont on veut connaître le nombre de bits \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
@@ -87,7 +87,7 @@ Retourne le nombre de lettre d'un maillon.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em m} & Le maillon dont on veut connaitre le nombre de lettre \\
+{\em m} & Le maillon dont on veut connaître le nombre de lettre \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
@@ -106,11 +106,11 @@ Le nombre de lettre contenues dans le maillon
 
 C version 0.\-4 char$\ast$ style \char`\"{}itoa\char`\"{}\-: Written by Lukás Chmela Released under G\-P\-Lv3. 
 
-Utilisation d'une fonction C existante mais qui n'est plus présente avec G\-C\-C, peut être obselète... Permet de convertir un int \char`\"{}value\char`\"{} en une string \char`\"{}result\char`\"{} qui est la représentation du \char`\"{}value\char`\"{} en base \char`\"{}base\char`\"{} Non utilisée dans le projet mais utilisé surant la phase de developpement pour debugger certaine fonctions 
+Utilisation d'une fonction C existante mais qui n'est plus présente avec G\-C\-C, peut être obsolète... Permet de convertir un int \char`\"{}value\char`\"{} en une string \char`\"{}result\char`\"{} qui est la représentation du \char`\"{}value\char`\"{} en base \char`\"{}base\char`\"{} Non utilisée dans le projet mais utilisé durant la phase de développement pour debugger certaine fonctions 
 \begin{DoxyParams}{Paramètres}
-{\em value} & L'entier dont on veut la representation dans la base \char`\"{}base\char`\"{} \\
+{\em value} & L'entier dont on veut la représentation dans la base \char`\"{}base\char`\"{} \\
 \hline
-{\em result} & La chaine résulat qui va contenir la représentation de \char`\"{}value\char`\"{} dans la base \char`\"{}base\char`\"{} \\
+{\em result} & La chaîne résultat qui va contenir la représentation de \char`\"{}value\char`\"{} dans la base \char`\"{}base\char`\"{} \\
 \hline
 {\em base} & La base dans laquelle on veut obtenir la représentation de \char`\"{}value\char`\"{}. \char`\"{}base\char`\"{} doit être compris entre 2 et 36. \\
 \hline
@@ -131,7 +131,7 @@ Libère l'espace mémoire réservée par un maillon et ses successeurs.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em m} & Le pointeur sur la tete d'une chaine de maillons qu'on veut libérer \\
+{\em m} & Le pointeur sur la tête d'une chaîne de maillons qu'on veut libérer \\
 \hline
 \end{DoxyParams}
 \hypertarget{maillon_8c_a8ebc8bd0a60877a7b86643d110bd6e9c}{\index{maillon.\-c@{maillon.\-c}!maillon\-\_\-to\-\_\-string@{maillon\-\_\-to\-\_\-string}}
@@ -143,15 +143,15 @@ Libère l'espace mémoire réservée par un maillon et ses successeurs.
 )}}\label{maillon_8c_a8ebc8bd0a60877a7b86643d110bd6e9c}
 
 
-Convertit une liste de maillons en chaine de caractères. 
+Convertit une liste de maillons en chaîne de caractères. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em m} & La liste de maillons à convertir en chaine de caractères \\
+{\em m} & La liste de maillons à convertir en chaîne de caractères \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-La liste de maillons convertie en chaine de caractères 
+La liste de maillons convertie en chaîne de caractères 
 \end{DoxyReturn}
 \hypertarget{maillon_8c_a0ece2664d78e943bd9d8b2673104f677}{\index{maillon.\-c@{maillon.\-c}!set\-\_\-charnum@{set\-\_\-charnum}}
 \index{set\-\_\-charnum@{set\-\_\-charnum}!maillon.c@{maillon.\-c}}
@@ -170,7 +170,7 @@ Modifie la k-\/ieme lettre d'un maillon par le caractère \char`\"{}c\char`\"{}.
 \begin{DoxyParams}{Paramètres}
 {\em k} & Indice entier supérieur à 0 \\
 \hline
-{\em c} & Caractère à inserer à la position \char`\"{}k\char`\"{} \\
+{\em c} & Caractère à insérer à la position \char`\"{}k\char`\"{} \\
 \hline
 {\em m} & Maillon dont on veut modifier la k-\/ième lettre \\
 \hline
@@ -185,12 +185,12 @@ Modifie la k-\/ieme lettre d'un maillon par le caractère \char`\"{}c\char`\"{}.
 )}}\label{maillon_8c_af5ad4d53f9bc68aa4cbfea432ad0cea5}
 
 
-Convertit une chaine de caractère en liste de maillons. 
+Convertit une chaîne de caractère en liste de maillons. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em chaine} & La chaine à convertir en maillons \\
+{\em chaine} & La chaîne à convertir en maillons \\
 \hline
-{\em m} & Le maillon qui correspond à la chaine convertie \\
+{\em m} & Le maillon qui correspond à la chaîne convertie \\
 \hline
 \end{DoxyParams}

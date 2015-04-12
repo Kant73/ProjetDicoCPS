@@ -65,7 +65,7 @@ void print_mot(mot_t m);
 
 /**
 * @brief Crée un mot à partir de son emplacement dans le texte
-* @param word 		Le mot que l'on veut créer (chaine de caractères)
+* @param word 		Le mot que l'on veut créer (chaîne de caractères)
 * @param num_ligne 	La ligne où se trouve le mot
 * @param num_col 	La colonne où se trouve le mot
 * @param mot 		Le mot dans lequel on veut créer le mot "word"
@@ -104,7 +104,7 @@ void affiche_dico(mot_t* dico);
 void ajoute_empl(mot_t* mot_cour, mot_t mot);
 
 /**
-* @brief Insère un mot dans le dictionnaire dans l'ordre alphabtique
+* @brief Insère un mot dans le dictionnaire dans l'ordre alphabétique
 * @param dico  	Un pointeur sur un dictionnaire (un pointeur de mot_t)
 * @param mot 	Un pointeur sur le mot à insérer dans le dico
 */
@@ -112,12 +112,12 @@ void insertion_dico(mot_t** dico, mot_t* mot);
 
 /**
 * @brief		Libère l'espace mémoire réservée par un emplacement et ses successeurs
-* @param empl 	Le pointeur sur la tete d'une chaine d'emplacements qu'on veut libérer en mémoire
+* @param empl 	Le pointeur sur la tête d'une chaîne d'emplacements qu'on veut libérer en mémoire
 */
 void libere_emplacements(emplacement_t* empl);
  
 /**
 * @brief		Libère l'espace mémoire réservée par un dictionnaire
-* @param dico 	Le dictionnaire (liste chainée de mot_t) dont on veut libérer la mémoire
+* @param dico 	Le dictionnaire (liste chaînée de mot_t) dont on veut libérer la mémoire
 */
 void libere_dico(mot_t* dico);
